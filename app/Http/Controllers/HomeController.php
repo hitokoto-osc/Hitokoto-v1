@@ -7,6 +7,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use View;
 
 class HomeController extends Controller
 {
@@ -22,6 +23,11 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
         $this->user = Auth::user();
+        $sharedData = [
+            'user' => $this->user
+        ];
+
+        View::share($sharedData);
     }
 
     /**
