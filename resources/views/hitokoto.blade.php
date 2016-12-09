@@ -39,7 +39,7 @@
                     <a class="mdl-navigation__link" href="{{ url('/login') }}">登陆</a>
                     <a class="mdl-navigation__link" href="{{ url('/register') }}">戳我添加⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄</a>
                 @else
-                    <a class="mdl-navigation__link" href="{{url('/home')}}">{{ Auth::user()->name }}</a>
+                    <a class="mdl-navigation__link" href="{{url('/home')}}">{{ Auth::user()->name }}（用户中心）</a>
                     <a class="mdl-navigation__link" href="{{ url('/logout') }}">登出</a>
                 @endif
                 <a class="mdl-navigation__link" href="{{url('/about')}}">关于一言...</a>

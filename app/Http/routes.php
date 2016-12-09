@@ -21,10 +21,6 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/check', 'CheckController@index');
-
-Route::get('/review', 'ReviewController@index');
-
 Route::get('/all', 'AllController@index');
 
 Route::get('/api', 'ApiController@index');
@@ -44,4 +40,7 @@ Route::any('/uploadProgress', 'HitokotoController@uploadProgress');
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/', 'AdminController@Index');
     Route::get('tickets', 'AdminTicketController@Index');
+    Route::get('hitokoto', 'AdminHitokotoPendingController@Index');
+    Route::get('/check', 'CheckController@index');
+    Route::get('/review', 'ReviewController@index');
 });

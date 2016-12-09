@@ -49,8 +49,8 @@
                 <a class="mdl-navigation__link" href="{{ url('/login') }}">登陆</a>
                 <a class="mdl-navigation__link" href="{{ url('/register') }}">注册</a>
                 @else
-                <a class="mdl-navigation__link" href="{{ url('/home') }}">{{ Auth::user()->name }}</a>
-                <a class="mdl-navigation__link" href="{{ url('/tickets') }}">工单</a>
+                <a class="mdl-navigation__link" href="{{ url('/home') }}">{{ Auth::user()->name }}（用户中心）</a>
+                <a class="mdl-navigation__link" href="{{ url('/tickets') }}">提交工单</a>
                 <a class="mdl-navigation__link" href="{{ url('/logout') }}">登出</a>
                 @endif
                 <a class="mdl-navigation__link" href="{{url('/about')}}">关于一言...</a>
