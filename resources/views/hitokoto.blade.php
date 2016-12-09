@@ -29,9 +29,9 @@
             <div class="mdl-layout-spacer"></div>
             <!-- Navigation -->
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="#" onclick="like({{$ID}})">
+                <a class="mdl-navigation__link" href="#" onclick="like({{ $result->id }})">
                     <div id="like_number1" class="material-icons mdl-badge mdl-badge--overlap"
-                         data-badge="{{$like_number}}">favorite
+                         data-badge="{{ $likes }}">favorite
                     </div>
                 </a>
                 <a class="mdl-navigation__link" href="{{url('/api')}}">API</a>
@@ -51,7 +51,7 @@
     <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Hitokoto</span>
         <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="#" onclick="like({{$ID}})"><div  id="like_number2" class="material-icons mdl-badge mdl-badge--overlap" data-badge="{{$like_number}}">favorite</div></a>
+            <a class="mdl-navigation__link" href="#" onclick="like({{ $result->id }})"><div  id="like_number2" class="material-icons mdl-badge mdl-badge--overlap" data-badge="{{$likes}}">favorite</div></a>
             <a class="mdl-navigation__link" href="{{url('/api')}}">API</a>
             @if (Auth::guest())
                 <a class="mdl-navigation__link" href="{{ url('/login') }}">登陆</a>
@@ -68,10 +68,10 @@
 			<!--hitokoto一言-->
 			<div id="hitokoto" class="animated fadeIn">
 				<p style="text-align:left" class="text">『</p><br/>
-				<center><p style="text-align:center;width:90%;margin-top:-40px" class="text">{{$hitokoto}}</p></center>
+				<center><p style="text-align:center;width:90%;margin-top:-40px" class="text">{{ $result->hitokoto }}</p></center>
 				<br/>
 				<p style="text-align:right;margin-top:-40px" class="text">』</p><br/>
-				<p style="text-align:right" class="text_author">-「{{$from}}」</p><br/>
+				<p style="text-align:right" class="text_author">-「{{ $result->from }}」</p><br/>
 			</div>
 		</div>
     </main>
@@ -84,7 +84,7 @@
 </p>
 
 <script type="text/javascript">
-var like_num={{$like_number}};
+var like_num={{ $likes }};
 
 function like(ID){
     $.get("/Like?ID="+ID,function(data,status){alert(data)});

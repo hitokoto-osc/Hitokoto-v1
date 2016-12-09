@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Input;
 
 class HomeController extends Controller
 {
+
+    private $user;
+
     /**
      * Create a new controller instance.
      *
@@ -18,6 +21,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->user = Auth::user();
     }
 
     /**
@@ -53,7 +57,7 @@ class HomeController extends Controller
                 $back['sentence_times']=count($results); 
             }
         }
-        if(Auth::user()->name=="freejishu" || Auth::user()->name=="酷儿"){
+        if($this->user->is_admin){
             $back['user_master']=1;
             $results = DB::select("SELECT * FROM `hitokoto_pending`");
             $back['user_check_list']=$results;

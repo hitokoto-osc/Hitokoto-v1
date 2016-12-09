@@ -110,5 +110,43 @@ header{
   font-size: 13px;
 }
 
+.ticket-table tr td p {
+    margin: 0;
+    line-height: 0px;
+}
+
+.uploaded {
+    height: 150px;
+    margin: 0 10px 0 0;
+    box-shadow: 0 0 10px #CCC;
+}
+
+.pd-30 {
+    padding: 30px;
+}
+
+.expanded {
+    width: 100%;
+}
+
+.progress-wrap {
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.picbox {
+    padding-top:0;
+    padding-bottom:10px;
+}
+
+.fix-reply-container {
+    max-width: 1250px;
+    margin: 0;
+}
+
+.fix-reply-container p {
+    width: 100%;
+}
+
 /* Login & Register Page */
 

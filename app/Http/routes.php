@@ -30,3 +30,18 @@ Route::get('/all', 'AllController@index');
 Route::get('/api', 'ApiController@index');
 
 Route::get('/about', 'AboutController@index');
+
+Route::get('/tickets', 'TicketController@index');
+Route::get('tickets/show/{id?}', 'TicketController@show')->where('id', '[0-9]+');
+Route::get('/tickets/create', 'TicketController@create');
+Route::post('/tickets/store', 'TicketController@store');
+Route::post('/tickets/delete/{id?}', 'TicketController@deleteTicket')->where('id', '[0-9]+');
+Route::post('/tickets/close/{id?}', 'TicketController@closeTicket')->where('id', '[0-9]+');
+Route::post('/tickets/addReply/{id?}', 'TicketController@addReply')->where('id', '[0-9]+');
+Route::post('/upload', 'HitokotoController@upload');
+Route::any('/uploadProgress', 'HitokotoController@uploadProgress');
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/', 'AdminController@Index');
+    Route::get('tickets', 'AdminTicketController@Index');
+});

@@ -20,7 +20,7 @@
     <div class="hitokoto-layout mdl-layout mdl-js-layout mdl-color--grey-100">
         <header class="mdl-layout__header mdl-layout__header--scroll">
             <div class="mdl-layout__header-row">
-                <span class="mdl-layout-title" href="{{ url('/') }}">Hitokoto - 后台管理</span>
+                <span class="mdl-layout-title" href="{{ url('/') }}">Hitokoto - 用户中心</span>
             <!-- Add spacer, to align navigation to the right -->
             <div class="mdl-layout-spacer"></div>
       <!-- Navigation -->
@@ -50,6 +50,7 @@
                 <a class="mdl-navigation__link" href="{{ url('/register') }}">注册</a>
                 @else
                 <a class="mdl-navigation__link" href="{{ url('/home') }}">{{ Auth::user()->name }}</a>
+                <a class="mdl-navigation__link" href="{{ url('/tickets') }}">工单</a>
                 <a class="mdl-navigation__link" href="{{ url('/logout') }}">登出</a>
                 @endif
                 <a class="mdl-navigation__link" href="{{url('/about')}}">关于一言...</a>
@@ -67,5 +68,6 @@
             -->
         </main>
     </div>
+@yield('scripts')
 </body>
 </html>

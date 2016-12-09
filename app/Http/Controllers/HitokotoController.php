@@ -3,54 +3,62 @@
 namespace App\Http\Controllers;
 
 use App\Hitokoto;
+use App\Libraries\System;
+use DB;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
 class HitokotoController extends Controller
 {
     public function index(){
-        $id = Input::get("id");
-        $type = Input::get("type");
-        $charset = Input::get("charset");
+        $id       = Input::get("id");
+        $type     = Input::get("type");
+        $hitokoto = Hitokoto::whereNotNull('hitokoto');
 
-        if($id){
-            if (!$type){
-                $result = Hitokoto::where('id',$id)->first();
-            } else {
-                $result = Hitokoto::where('id',$id)->where('type',$type)->first();
-            }
+        if ($id) $hitokoto->where('id', $id);
+        if ($type) $hitokoto->where('type', $type);
+        if (!$id) $hitokoto->inRandomOrder();
 
-            if(!$result){
-                return view('errors.404');
-            }
+        $result = $hitokoto->first();
+        if (!$result) return view('errors.404');
 
+        $result->from = $result->from ?: "无名";
+        $likes = $result->like_number->count();
+
+        return view('hitokoto', compact('result', 'likes'));
+    }
+
+    public function upload()
+    {
+        $uploadResult = System::upload('uploadfile');
+        if($uploadResult) exit(json_encode(array('success' => true, 'file' => $uploadResult)));
+        exit(json_encode(array('success' => false, 'msg' => $uploadResult)));
+    }
+
+    public function uploadProgress()
+    {
+        if (isset($_SERVER['HTTP_ORIGIN'])) {
+            header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+            header('Access-Control-Allow-Credentials: true');
+            header('Access-Control-Max-Age: 86400');
+        }
+        if (isset($_REQUEST['progresskey'])) {
+            $status = apc_fetch('upload_' . $_REQUEST['progresskey']);
         } else {
-            if (!$type){
-                $result = Hitokoto::orderBy(\DB::raw('RAND()'))->take(1)->first();
-            } else {
-                $result = Hitokoto::where('type',$type)->orderBy(\DB::raw('RAND()'))->take(1)->first();
+            exit(json_encode(['success' => false]));
+        }
+        $pct  = 0;
+        $size = 0;
+        if (is_array($status)) {
+            if (array_key_exists('total', $status) && array_key_exists('current', $status)) {
+                if ($status['total'] > 0) {
+                    $pct  = round(($status['current'] / $status['total']) * 100);
+                    $size = round($status['total'] / 1024);
+                }
             }
         }
-        
-        $data['hitokoto'] = $result->hitokoto;
-        $data['type'] = $result->type;
-        $data['from'] = $result->from ? $result->from : "无名";
-        $data['creator'] = $result->creator;
-        $data['ID']=$result->id;
-        if($data['ID']){
-            $results = DB::select('select * from hitokoto_like where sentenceID = '.$data['ID']);
-            $data['like_number'] = count($results);
-            //$data['like_number'] = $results -> {'count(*)'};
-        }
-        
-
-        if($charset=='gbk')
-        {
-            //iconv("UTF-8", "GBK", $data);
-        }
-        return view('hitokoto' ,$data);
+        echo json_encode(['success' => true, 'pct' => $pct, 'size' => $size]);
     }
 }
