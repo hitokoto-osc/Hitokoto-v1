@@ -1,10 +1,5 @@
 @media screen and (min-width: 600px) {
-    table{
-        border-collapse: collapse;
-    }
-    td ,th  {
-        border:1px   solid  #d7d7d7;
-    }
+
     /* Hitokoto Page */
     #hitokoto{
         padding-top:18%;
@@ -29,13 +24,25 @@
         padding: 80px 56px;
         margin-bottom: 80px;
     }
-
+    /*Api Introduction Page*/
+    .apitable{
+        border-collapse: collapse;
+    }
+    .apitable>tbody>tr>td , .apitable>tbody>tr>th{
+        border:1px   solid  #d7d7d7;
+    }
 }
 @media screen and (max-width: 600px) {
-    table{
+    /*table{
         border-collapse: collapse;
     }
     td ,th  {
+        border:1px   solid  #d7d7d7;
+    }*/
+    .apitable{
+        border-collapse: collapse;
+    }
+    .apitable>td,.apitable>th{
         border:1px   solid  #d7d7d7;
     }
     /* Hitokoto Page */
@@ -159,6 +166,12 @@ header{
 .fix-reply-container p {
     width: 100%;
 }
-
+/*Api Introduction Page*/
+.apitable{
+    border-collapse: collapse;
+}
+.apitable>tbody>tr>td , .apitable>tbody>tr>th{
+    border:1px   solid  #d7d7d7;
+}
 /* Login & Register Page */
 

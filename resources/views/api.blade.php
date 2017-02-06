@@ -29,12 +29,12 @@
                 <h4>3、参数</h4>
                 <p>
 
-                <table border="0.5" cellspacing="0" cellpadding="0">
+                <table class="apitable" border="0" cellspacing="0" cellpadding="0">
                     <tbody>
                     <tr>
-                        <th width="100"><b>参数名称</b></th>
-                        <th width="100"><b>类型</b></th>
-                        <th colspan="4"><b>描述</b></th>
+                        <th  width="100"><b>参数名称</b></th>
+                        <th  width="100"><b>类型</b></th>
+                        <th  colspan="4"><b>描述</b></th>
                     </tr>
                     <tr style="text-align: center;">
                         <td rowspan="9">c</td>
@@ -96,7 +96,7 @@
 
                 </p>
                 <h4>4、返回（默认json格式）</h4>
-                <table border="0" cellspacing="0" cellpadding="0">
+                <table class="apitable" border="0" cellspacing="0" cellpadding="0">
                     <tbody>
                     <tr>
                         <th><b>返回参数名称</b></th>
