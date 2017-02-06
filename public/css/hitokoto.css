@@ -1,4 +1,10 @@
 @media screen and (min-width: 600px) {
+    table{
+        border-collapse: collapse;
+    }
+    td ,th  {
+        border:1px   solid  #d7d7d7;
+    }
     /* Hitokoto Page */
     #hitokoto{
         padding-top:18%;
@@ -26,6 +32,12 @@
 
 }
 @media screen and (max-width: 600px) {
+    table{
+        border-collapse: collapse;
+    }
+    td ,th  {
+        border:1px   solid  #d7d7d7;
+    }
     /* Hitokoto Page */
     #hitokoto{
         padding-top:50%;
