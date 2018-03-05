@@ -94,16 +94,16 @@
                         <td colspan="2">返回unicode转码的json文本</td>
                     </tr>
                     <tr>
-                        <td rowspan="1" style="text-align: center;">charset</td>
-                        <td rowspan="1" style="text-align: center;">可选(默认 UTF-8)</td>
+                        <td rowspan="2" style="text-align: center;">charset</td>
+                        <td rowspan="2" style="text-align: center;">可选(默认 UTF-8)</td>
                     </tr>
                     <tr>
                         <td>gbk</td>
                         <td colspan="2">返回 GBK 编码的内容，不支持与异步函数同用。</td>
                     </tr>
                     <tr>
-                        <td rowspan="1" style="text-align: center;">callback</td>
-                        <td rowspan="1" style="text-align: center;">可选</td>
+                        <td rowspan="2" style="text-align: center;">callback</td>
+                        <td rowspan="2" style="text-align: center;">可选</td>
                     </tr>
                     <tr>
                         <td>回调函数</td>
