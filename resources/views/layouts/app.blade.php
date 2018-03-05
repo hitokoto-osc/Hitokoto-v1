@@ -70,7 +70,7 @@
         </main>
     </div>
 @yield('scripts')
-<script src="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/lib/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/lib/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
