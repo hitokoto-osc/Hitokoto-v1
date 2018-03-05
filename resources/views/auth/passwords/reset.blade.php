@@ -7,7 +7,7 @@
     </div>
     <div class="mdl-card__actions mdl-card--border">
         <div class="mdl-card__supporting-text">
-            <form  method="POST" action="{{ url('/password/reset') }}">
+            <form  method="POST" action="/password/reset">
                 {{ csrf_field() }}
                 <input type="hidden" name="token" value="{{ $token }}">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
