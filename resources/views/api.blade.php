@@ -169,7 +169,7 @@
 &lt;script src="https://cdn.bootcss.com/fetch/2.0.3/fetch.min.js"&gt;&lt;/script&gt;
 &lt;!--End--&gt;
 &lt;script&gt;
-  fetch('https://sslapi.hitokoto.cn')
+  fetch('https://v1.hitokoto.cn')
     .then(function (res){
       return res.json();
     })
@@ -185,7 +185,7 @@
 &lt;!-- 老式写法，兼容性最忧 --&gt;
 &lt;script&gt;
   var xhr = new XMLHttpRequest();
-  xhr.open('get', 'https://sslapi.hitokoto.cn');
+  xhr.open('get', 'https://v1.hitokoto.cn');
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {
       var data = JSON.parse(xhr.responseText);
