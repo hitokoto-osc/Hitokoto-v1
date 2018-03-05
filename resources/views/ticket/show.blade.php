@@ -50,7 +50,7 @@
     <div class="hitokoto-container mdl-grid">
         <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
         <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--10-col mdl-grid pd-30 fix-reply-container">
-            <form method="post" action="{{ url('tickets/addReply/').'/'.$ticket->id }}" enctype="multipart/form-data" id="reply-form" class="expanded">
+            <form method="post" action="{{ '/tickets/addReply/'.'/'.$ticket->id }}" enctype="multipart/form-data" id="reply-form" class="expanded">
                 {{ csrf_field() }}
                 <div>
                     <p>上传附件
