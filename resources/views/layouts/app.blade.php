@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/dist/material.indigo-pink.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daneden/animate.css/animate.min.css">
-	<link rel="stylesheet" href="/css/hitokoto.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/solarized-dark.min.css">
+    <link rel="stylesheet" href="/css/hitokoto.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/material.min.js"></script>
 
@@ -69,5 +70,7 @@
         </main>
     </div>
 @yield('scripts')
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/lib/index.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
