@@ -94,8 +94,8 @@
                         <td colspan="2">返回unicode转码的json文本</td>
                     </tr>
                     <tr>
-                        <td rowspan="4" style="text-align: center;">charset</td>
-                        <td rowspan="4" style="text-align: center;">可选</td>
+                        <td rowspan="3" style="text-align: center;">charset</td>
+                        <td rowspan="3" style="text-align: center;">可选</td>
                     </tr>
                     <tr>
                         <td>utf-8</td>
