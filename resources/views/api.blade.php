@@ -95,7 +95,11 @@
                     </tr>
                     <tr>
                         <td rowspan="2" style="text-align: center;">charset</td>
-                        <td rowspan="2" style="text-align: center;">可选(默认 UTF-8)</td>
+                        <td rowspan="2" style="text-align: center;">可选</td>
+                    </tr>
+                    <tr>
+                        <td>utf-8</td>
+                        <td colspan="2">返回 UTF-8 编码的内容，支持与异步函数同用。</td>
                     </tr>
                     <tr>
                         <td>gbk</td>
