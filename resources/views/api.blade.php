@@ -94,8 +94,8 @@
                         <td colspan="2">返回unicode转码的json文本</td>
                     </tr>
                     <tr>
-                        <td rowspan="2" style="text-align: center;">charset</td>
-                        <td rowspan="2" style="text-align: center;">可选</td>
+                        <td rowspan="4" style="text-align: center;">charset</td>
+                        <td rowspan="4" style="text-align: center;">可选</td>
                     </tr>
                     <tr>
                         <td>utf-8</td>
@@ -130,7 +130,7 @@
                     </tr>
                     <tr>
                         <td>hitokoto</td>
-                        <td>一言正文。编码方式usc2。使用utf-8。</td>
+                        <td>一言正文。编码方式unicode。使用utf-8。</td>
                     </tr>
                     <tr>
                         <td>type</td>
