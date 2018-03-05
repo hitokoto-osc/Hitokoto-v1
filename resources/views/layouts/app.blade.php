@@ -7,12 +7,12 @@
 
     <title>Hitokoto - 一言</title>
     
-    <link rel="stylesheet" href="{{asset('/css/icon.css')}}">
-    <link rel="stylesheet" href="{{asset('/material/material.indigo-pink.min.css')}}">
-    <link rel="stylesheet" href="{{asset('/material/animate.min.css')}}">
-	<link rel="stylesheet" href="{{asset('/css/hitokoto.css')}}">
-    <script src="https://fimg.mypcqq.cc/fm/js/jquery/1.4.2/jquery.js"></script>
-    <script defer src="{{asset('/material/material.min.js')}}"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/dist/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daneden/animate.css/animate.min.css">
+	<link rel="stylesheet" href="/css/hitokoto.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/material.min.js"></script>
 
 </head>
 
@@ -20,19 +20,19 @@
     <div class="hitokoto-layout mdl-layout mdl-js-layout mdl-color--grey-100">
         <header class="mdl-layout__header mdl-layout__header--scroll">
             <div class="mdl-layout__header-row">
-                <span class="mdl-layout-title" href="{{ url('/') }}">Hitokoto - 用户中心</span>
+                <span class="mdl-layout-title" href="/">Hitokoto - 用户中心</span>
             <!-- Add spacer, to align navigation to the right -->
             <div class="mdl-layout-spacer"></div>
       <!-- Navigation -->
                 <nav class="mdl-navigation">
-                    <a class="mdl-navigation__link" href="{{ url('/') }}">首页</a>
-                    <a class="mdl-navigation__link" href="{{ url('/api') }}">API</a>
+                    <a class="mdl-navigation__link" href="/">首页</a>
+                    <a class="mdl-navigation__link" href="/api">API</a>
                     @if (Auth::guest())
-                    <a class="mdl-navigation__link" href="{{ url('/login') }}">登陆</a>
-                    <a class="mdl-navigation__link" href="{{ url('/register') }}">注册</a>
+                    <a class="mdl-navigation__link" href="/login">登陆</a>
+                    <a class="mdl-navigation__link" href="/register">注册</a>
                     @else
-                    <a class="mdl-navigation__link" href="{{ url('/home') }}">{{ Auth::user()->name }}</a>
-                    <a class="mdl-navigation__link" href="{{ url('/logout') }}">登出</a>
+                    <a class="mdl-navigation__link" href="/home">{{ Auth::user()->name }}</a>
+                    <a class="mdl-navigation__link" href="/logout">登出</a>
                     @endif
                     <a class="mdl-navigation__link" href="{{url('/about')}}">关于一言...</a>
                 </nav>
@@ -43,17 +43,17 @@
         <div class="mdl-layout__drawer">
             <span class="mdl-layout-title">Hitokoto</span>
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="{{ url('/') }}">首页</a>
-                <a class="mdl-navigation__link" href="{{ url('/api') }}">API</a>
+                <a class="mdl-navigation__link" href="/">首页</a>
+                <a class="mdl-navigation__link" href="/api">API</a>
                 @if (Auth::guest())
-                <a class="mdl-navigation__link" href="{{ url('/login') }}">登陆</a>
-                <a class="mdl-navigation__link" href="{{ url('/register') }}">注册</a>
+                <a class="mdl-navigation__link" href="/login">登陆</a>
+                <a class="mdl-navigation__link" href="/register">注册</a>
                 @else
-                <a class="mdl-navigation__link" href="{{ url('/home') }}">{{ Auth::user()->name }}（用户中心）</a>
-                <a class="mdl-navigation__link" href="{{ url('/tickets') }}">提交工单</a>
-                <a class="mdl-navigation__link" href="{{ url('/logout') }}">登出</a>
+                <a class="mdl-navigation__link" href="/home">{{ Auth::user()->name }}（用户中心）</a>
+                <a class="mdl-navigation__link" href="/tickets">提交工单</a>
+                <a class="mdl-navigation__link" href="/logout">登出</a>
                 @endif
-                <a class="mdl-navigation__link" href="{{url('/about')}}">关于一言...</a>
+                <a class="mdl-navigation__link" href="/about">关于一言...</a>
             </nav>
         </div>
         <div class="hitokoto-ribbon"></div>

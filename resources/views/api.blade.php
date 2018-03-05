@@ -23,10 +23,10 @@
                 <h4>2、Api</h4>
                 <p>
                     请求地址：<br/>
-                    HTTP : http://api.hitokoto.cn/<br/>
-                    SSL(推荐) : https://sslapi.hitokoto.cn/
+                    HTTP(s): https://v1.hitokoto.cn/
                 </p>
                 <h4>3、参数</h4>
+                <h5> 请先参考: <a href="https://i.a632079.me/post/teng-koa">文档</a> ，本页面将于近期更新。 (将会增加使用例子)</h5>
                 <p>
 
                 <table class="apitable" border="0" cellspacing="0" cellpadding="0">
@@ -133,9 +133,9 @@
                 </table>
                 <h4>5、示例</h4>
                 <p>
-                    https://sslapi.hitokoto.cn/（从7种分类中随机抽取）<br/><br/>
-                    https://sslapi.hitokoto.cn/?c=b （请求获得一个分类是漫画的句子）<br/><br/>
-                    https://sslapi.hitokoto.cn/?c=f&encode=text （请求获得一个来自网络的句子，并以纯文本格式输出）
+                    https://v1.hitokoto.cn/（从7种分类中随机抽取）<br/><br/>
+                    https://v1.hitokoto.cn/?c=b （请求获得一个分类是漫画的句子）<br/><br/>
+                    https://v1.hitokoto.cn/?c=f&encode=text （请求获得一个来自网络的句子，并以纯文本格式输出）
                 </p>
             </div>
         </div>

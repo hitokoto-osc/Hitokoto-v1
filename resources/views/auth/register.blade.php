@@ -7,7 +7,7 @@
     </div>
     <div class="mdl-card__actions mdl-card--border">
         <div class="mdl-card__supporting-text">
-            <form  method="POST" action="{{ url('/register') }}">
+            <form  method="POST" action="/register">
                 {{ csrf_field() }}
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <input class="mdl-textfield__input"  name = "name" type="text" id="name" value="{{ old('name') }}" >
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <div style="width: 50%;">
-                        <img style="margin-top: 7%;" class="refresh-code" src="{{ captcha_src() }}" onclick="$(this).attr('src', '/captcha/default?'+Math.random(6))" title="点击刷新">
+                        <img style="margin-top: 7%;" class="refresh-code" src="/captcha/default" onclick="$(this).attr('src', '/captcha/default?'+Math.random(6))" title="点击刷新">
                     </div>
                 </div>
                 @if ($errors->has('captcha'))
