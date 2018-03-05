@@ -34,7 +34,7 @@
                     <a class="mdl-navigation__link" href="/home">{{ Auth::user()->name }}</a>
                     <a class="mdl-navigation__link" href="/logout">登出</a>
                     @endif
-                    <a class="mdl-navigation__link" href="{{url('/about')}}">关于一言...</a>
+                    <a class="mdl-navigation__link" href="/about">关于一言...</a>
                 </nav>
             </div>
         </header>
