@@ -159,15 +159,15 @@
                     https://v1.hitokoto.cn/?c=b （请求获得一个分类是漫画的句子）<br/><br/>
                     https://v1.hitokoto.cn/?c=f&encode=text （请求获得一个来自网络的句子，并以纯文本格式输出）
                 </p>
-                <code><pre><p id="hitokoto">:D 获取中...</p>
-<!-- 以下写法，选取一种即可 -->
+                <pre><code>&lt;p id="hitokoto"&gt;:D 获取中...&lt;/p&gt;
+&lt;!-- 以下写法，选取一种即可 --&gt;
 
-<!-- 现代写法，推荐 -->
-<!-- 兼容低版本浏览器 (包括 IE)，可移除 -->
-<script src="https://cdn.bootcss.com/bluebird/3.5.1/bluebird.core.min.js"></script>
-<script src="https://cdn.bootcss.com/fetch/2.0.3/fetch.min.js"></script>
-<!--End-->
-<script>
+&lt;!-- 现代写法，推荐 --&gt;
+&lt;!-- 兼容低版本浏览器 (包括 IE)，可移除 --&gt;
+&lt;script src="https://cdn.bootcss.com/bluebird/3.5.1/bluebird.core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.bootcss.com/fetch/2.0.3/fetch.min.js"&gt;&lt;/script&gt;
+&lt;!--End--&gt;
+&lt;script&gt;
   fetch('https://sslapi.hitokoto.cn')
     .then(function (res){
       return res.json();
@@ -179,10 +179,10 @@
     .catch(function (err) {
       console.error(err);
     })
-</script>
+&lt;/script&gt;
 
-<!-- 老式写法，兼容性最忧 -->
-<script>
+&lt;!-- 老式写法，兼容性最忧 --&gt;
+&lt;script&gt;
   var xhr = new XMLHttpRequest();
   xhr.open('get', 'https://sslapi.hitokoto.cn');
   xhr.onreadystatechange = function () {
@@ -193,10 +193,11 @@
     }
   }
   xhr.send();
-</script>
+&lt;/script&gt;
 
-<!-- 新 API 方法， 十分简洁 -->
-<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script></pre></code>
+&lt;!-- 新 API 方法， 十分简洁 --&gt;
+&lt;script src="https://v1.hitokoto.cn/?encode=js&amp;select=%23hitokoto" defer&gt;&lt;/script&gt;
+</code></pre>
             </div>
         </div>
         <footer class="mdl-mini-footer">
