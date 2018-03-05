@@ -14,7 +14,7 @@
                 </div>
             @endif
             
-            <form  method="POST" action="{{ url('/password/email') }}">
+            <form  method="POST" action="/password/email">
                 {{ csrf_field() }}
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
                     <input class="mdl-textfield__input " name = "email" type="email"  id="email" value="{{ old('email') }}">
