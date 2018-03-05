@@ -26,7 +26,6 @@
                     HTTP(s): https://v1.hitokoto.cn/
                 </p>
                 <h4>3、参数</h4>
-                <h5> 请先参考: <a href="https://i.a632079.me/post/teng-koa">文档</a> ，本页面将于近期更新。 (将会增加使用例子)</h5>
                 <p>
 
                 <table class="apitable" border="0" cellspacing="0" cellpadding="0">
@@ -74,8 +73,8 @@
                         <td colspan="2">任意类型随机取得</td>
                     </tr>
                     <tr>
-                        <td rowspan="9" style="text-align: center;">encode</td>
-                        <td rowspan="9" style="text-align: center;">可选</td>
+                        <td rowspan="4" style="text-align: center;">encode</td>
+                        <td rowspan="4" style="text-align: center;">可选</td>
 
                     </tr>
                     <tr>
@@ -85,6 +84,10 @@
                     <tr>
                         <td>json</td>
                         <td colspan="2">返回不进行unicode转码的json文本</td>
+                    </tr>
+                    <tr>
+                        <td>js</td>
+                        <td colspan="2">返回指定选择器(默认.hitokoto)的同步执行函数。</td>
                     </tr>
                     <tr>
                         <td>其他不存在参数</td>
