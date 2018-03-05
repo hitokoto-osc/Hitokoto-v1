@@ -159,7 +159,8 @@
                     https://v1.hitokoto.cn/?c=b （请求获得一个分类是漫画的句子）<br/><br/>
                     https://v1.hitokoto.cn/?c=f&encode=text （请求获得一个来自网络的句子，并以纯文本格式输出）
                 </p>
-                <pre><code>&lt;p id="hitokoto"&gt;:D 获取中...&lt;/p&gt;
+                <h5>网页使用示例:</h4>
+                <pre><code class="html">&lt;p id="hitokoto"&gt;:D 获取中...&lt;/p&gt;
 &lt;!-- 以下写法，选取一种即可 --&gt;
 
 &lt;!-- 现代写法，推荐 --&gt;
@@ -198,6 +199,8 @@
 &lt;!-- 新 API 方法， 十分简洁 --&gt;
 &lt;script src="https://v1.hitokoto.cn/?encode=js&amp;select=%23hitokoto" defer&gt;&lt;/script&gt;
 </code></pre>
+            <h4>6、 扩展</h4>
+            <p>网易云 API， 目前文档尚未制作，可以先参考 <a href="https://github.com/a632079/teng-koa/blob/master/netease.md">Github</a></p>
             </div>
         </div>
         <footer class="mdl-mini-footer">
