@@ -6,14 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Hitokoto - 一言</title>
-
-    <link rel="stylesheet" href="{{asset('/css/icon.css')}}">
-    <link rel="stylesheet" href="{{asset('/material/material.indigo-pink.min.css')}}">
-    <link rel="stylesheet" href="{{asset('/material/animate.min.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/hitokoto.css')}}">
-    <script src="https://fimg.mypcqq.cc/fm/js/jquery/1.4.2/jquery.js"></script>
-    <script defer src="{{asset('/material/material.min.js')}}"></script>
-
+    <link rel="stylesheet" href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/dist/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daneden/animate.css/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/solarized-dark.min.css">
+    <link rel="stylesheet" href="/css/hitokoto.css">
 </head>
 
 <body id="app-layout" style="font-family: 'Lato',sans-serif;">
@@ -59,6 +56,9 @@
         -->
     </main>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.slim.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/material.min.js"></script>
 @yield('scripts')
+
 </body>
 </html>
