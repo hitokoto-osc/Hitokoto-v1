@@ -12,6 +12,29 @@ use Illuminate\Support\Facades\Input;
 
 class LikeController extends Controller
 {
+    public function get() {
+      $id = @(int)Input::get("ID");
+      if (!$id || $id == 0) {
+        return response() -> json([
+          "status" => 400,
+          "message" => "Bad Request",
+          "data" => []
+        ]);
+      }
+      $result = Like::where("sentenceID", $id)->get();
+      $set = array();
+      foreach($result as $raw) {
+        $set[] = $raw;
+      }
+      return response() -> json([
+        "status" => 0,
+        "message" => "ok",
+        "data" => [
+          "set" => $set,
+          "total" => count($set)
+        ]
+      ]);
+    }
     public function index(){
         preg_match_all("/\\d+/m", Input::get("ID"), $matches);
         if ($matches[0][0]!= Input::get("ID")){

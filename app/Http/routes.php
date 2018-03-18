@@ -16,6 +16,7 @@ Route::get('/', 'HitokotoController@index');
 Route::any('/add', 'AddController@index');
 
 Route::any('/Like', 'LikeController@index');
+Route::get('/getLike', 'LikeController@get');
 
 Route::auth();
 

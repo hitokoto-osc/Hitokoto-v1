@@ -10,15 +10,17 @@
     }
     .background{
         -webkit-filter: brightness(0.6);
+        -ms-filter: brightness(0.6);
+        -moz-filter: brightness(0.6);
         filter: brightness(0.6);
         position:absolute;
         width:100%;
         height:100%;
         z-index:-1;
-        background:url(https://hitokoto.cn/img/background.jpg) center no-repeat;
+        background:url(https://piccdn.freejishu.com/images/2018/03/11/qf3cu.jpg) center no-repeat;
         background-size:cover;
+    
     }
-    /* Content Style */
     .hitokoto-content {
         /*border-radius: 2px;*/
         padding: 80px 56px;
@@ -39,6 +41,9 @@
     td ,th  {
         border:1px   solid  #d7d7d7;
     }*/
+    .mdl-layout__drawer-button {
+        color: #fff;
+    }
     .apitable{
         border-collapse: collapse;
     }

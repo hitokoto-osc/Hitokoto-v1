@@ -20,9 +20,7 @@ class AddController extends Controller
             $data["type"] = Input::get('type');
             $data["created_at"] = strtotime("now");
             DB::table("pending")->insert($data);
-            header("302 Found");
-            header("Location:http://hitokoto.cn/home");
-            return "Success!";
+            return redirect('home');
         } else {
             return view('add');
         }

@@ -22,6 +22,12 @@
                 </p>
                 <h4>2、Api</h4>
                 <p>
+                    提示:旧接口http://api.hitokoto.cn和https://sslapi.hitokoto.cn将在未来一段时间内停用之前的旧版本api，无缝切换(切换解析)到目前的v1新api。
+                </p>
+                <p>
+                    提示:Hitokoto预计将在2018年6-8月份做网站大版本更新。届时会有更多的新api加入，欢迎各位持续关注。v1的api不会受到大版本调整影响。
+                </p>
+                <p>
                     请求地址：<br/>
                     HTTP(s): https://v1.hitokoto.cn/
                 </p>
