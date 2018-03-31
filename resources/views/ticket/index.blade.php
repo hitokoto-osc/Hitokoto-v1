@@ -43,7 +43,7 @@
             @else
                 @foreach($tickets as $key => $ticket)
                     <tr>
-                        <td class="mdl-data-table__cell--non-numeric">#{{ $key + 1 }}</td>
+                        <td class="mdl-data-table__cell--non-numeric">#{{ $ticket->id }}</td>
                         <td>{{ $ticket->title }}</td>
                         <td>{{ substr($ticket->content,0, 30) }}...</td>
                         <td>{{ $ticket->open_time }}</td>

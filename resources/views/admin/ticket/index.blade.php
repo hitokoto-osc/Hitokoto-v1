@@ -40,7 +40,7 @@
                     @else
                         @foreach($tickets as $key => $ticket)
                             <tr>
-                                <td class="mdl-data-table__cell--non-numeric">#{{ $key + 1 }}</td>
+                                <td class="mdl-data-table__cell--non-numeric">#{{ $ticket->id }}</td>
                                 <td>{{ $ticket->title }}</td>
                                 <td>{{ substr($ticket->content,0, 30) }}...</td>
                                 <td>{{ $ticket->open_time }}</td>
@@ -63,27 +63,45 @@
             $('.close_ticket').click(function(){
                 if(confirm('是否关闭本条工单')) {
                     var ticketId = $(this).attr('data-ticket');
-                    $.post('{{ url('tickets/close/') }}/' + ticketId, {_token: '{{ csrf_token() }}' }, function(data){
-                        var obj = JSON.parse(data);
+                    fetch("{{ url('tickets/close/') }}/" + ticketId, {
+                      method: "POST",
+                      headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                      },
+                      credentials: 'same-origin'
+                    })
+                      .then(function(res) {
+                        return res.json();
+                      })
+                      .then(function(obj) {
                         if(obj.status == 'y') {
                             setTimeout(function () {
                                 window.location.reload()
                             },500);
                         }
-                    });
+                      });
                 }
             });
             $('.delete_ticket').click(function(){
                 if(confirm('是否删除本条工单')) {
                     var ticketId = $(this).attr('data-ticket');
-                    $.post('{{ url('tickets/delete/') }}/' + ticketId, {_token: '{{ csrf_token() }}' }, function(data){
-                        var obj = JSON.parse(data);
+                    fetch("{{ url('tickets/delete/') }}/" + ticketId, {
+                      method: "POST",
+                      headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                      },
+                      credentials: 'same-origin'
+                    })
+                      .then(function(res) {
+                        return res.json();
+                      })
+                      .then(function(obj) {
                         if(obj.status == 'y') {
                             setTimeout(function () {
                                 window.location.reload()
                             },500);
-                        }
-                    });
+                        }   
+                      })
                 }
             });
         });

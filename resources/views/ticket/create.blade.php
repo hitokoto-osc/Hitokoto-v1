@@ -41,7 +41,7 @@
 @endsection
 
 @section('scripts')
-    <script type="text/javascript" src="{{ asset('plugins/Simple-Ajax-Uploader-master/SimpleAjaxUploader.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/gh/LPology/Simple-Ajax-Uploader@2.6.2/SimpleAjaxUploader.min.js"></script>
     <script>
         $(function () {
             var btn = document.getElementById('upload-btn'),
@@ -49,6 +49,9 @@
                 picBox = document.getElementById('picbox'),
                 errBox = document.getElementById('errormsg');
             var uploader = new ss.SimpleUpload({
+                customHeaders: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 button: btn,
                 url: '{{ url('upload') }}',
                 progressUrl: '{{ url('uploadProgress') }}',

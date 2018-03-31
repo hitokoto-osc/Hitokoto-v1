@@ -8,6 +8,7 @@
                     Hitokoto &gt; Api
                 </div>
                 <h3>一言网 Api 接口说明</h3>
+                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="108" src="https://cdn.a632079.me/163cplayer.html?playlist=496869422"></iframe>
                 <h4>1、说明</h4>
                 <p>
                     一言网(Hitokoto.cn)创立于2016年，隶属于萌创Team，目前网站主要提供一句话服务。
@@ -166,13 +167,13 @@
                     https://v1.hitokoto.cn/?c=f&encode=text （请求获得一个来自网络的句子，并以纯文本格式输出）
                 </p>
                 <h5>网页使用示例:</h4>
-                <pre><code class="html">&lt;p id="hitokoto"&gt;:D 获取中...&lt;/p&gt;
+            <pre><code language="html">&lt;p id=&quot;hitokoto&quot;&gt;:D 获取中...&lt;/p&gt;
 &lt;!-- 以下写法，选取一种即可 --&gt;
 
 &lt;!-- 现代写法，推荐 --&gt;
 &lt;!-- 兼容低版本浏览器 (包括 IE)，可移除 --&gt;
-&lt;script src="https://cdn.bootcss.com/bluebird/3.5.1/bluebird.core.min.js"&gt;&lt;/script&gt;
-&lt;script src="https://cdn.bootcss.com/fetch/2.0.3/fetch.min.js"&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js&quot;&gt;&lt;/script&gt;
 &lt;!--End--&gt;
 &lt;script&gt;
   fetch('https://v1.hitokoto.cn')
@@ -203,8 +204,94 @@
 &lt;/script&gt;
 
 &lt;!-- 新 API 方法， 十分简洁 --&gt;
-&lt;script src="https://v1.hitokoto.cn/?encode=js&amp;select=%23hitokoto" defer&gt;&lt;/script&gt;
-</code></pre>
+&lt;script src=&quot;https://v1.hitokoto.cn/?encode=js&amp;select=%23hitokoto&quot; defer&gt;&lt;/script&gt;</code></pre>
+            <br />
+            <h5>网易云 API 使用示例</h5>
+            <pre><code language="javascript">// 本示例需要浏览器支持 Promise 以及 fetch. 若需要全部浏览器支持， 请参考一言示例引用 bluebird 和 fetch.
+function fetch163Playlist(playlist_id) {
+  return new Promise(function (ok, err) {
+    fetch("https://v1.hitokoto.cn/nm/playlist/" + playlist_id)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        var arr = [];
+        data.playlist.tracks.map(function (value) {
+          arr.push(value.id);
+        });
+        return arr;
+      })
+      .then(function (ids) {
+        return fetch163Songs(ids);
+      })
+      .then(function (data) {
+        ok(data);
+      })
+      .catch(function (e) {
+        err(e);
+      });
+  })
+}
+
+function fetch163Songs(IDS) {
+  var ids;
+  switch (typeof IDS) {
+  case 'number':
+    ids = [IDS];
+    break;
+  case 'object':
+    if (!Array.isArray(IDS)) {
+      return new Error("Please enter array or number");
+    }
+    ids = IDS;
+    break;
+  default:
+    return new Error("Please enter array or number");
+    break;
+  }
+  return new Promise(function (ok, err) {
+    fetch("https://v1.hitokoto.cn/nm/summary/" + ids.join(",") + "?lyric=true&common=true")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        var songs = [];
+        data.songs.map(function (song) {
+          songs.push({
+            name: song.name,
+            url: song.url,
+            artist: song.artists.join("/"),
+            album: song.album.name,
+            pic: song.album.picture,
+            lrc: song.lyric
+          });
+        });
+        return songs;
+      })
+      .then(function (result) {
+        ok(result);
+      })
+      .catch(function (e) {
+        err(e);
+      });
+  });
+}
+
+// 使用测试
+fetch163Playlist(2158283120)
+  .then(function (data) {
+    console.log(data);
+  })
+  .catch(function (err) {
+    console.error(err);
+  })
+fetch163Songs([28391863, 22640061])
+  .then(function (data) {
+    console.log(data);
+  })
+  .catch(function (err) {
+    console.error(err);
+  })</code><pre>
             <h4>6、 扩展</h4>
             <p>网易云 API， 目前文档尚未制作，可以先参考 <a href="https://github.com/a632079/teng-koa/blob/master/netease.md">Github</a></p>
             </div>

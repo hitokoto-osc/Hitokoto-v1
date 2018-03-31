@@ -16,18 +16,21 @@ class HitokotoController extends Controller
         $id       = Input::get("id");
         $type     = Input::get("type");
         $hitokoto = Hitokoto::whereNotNull('hitokoto');
-
-        if ($id) $hitokoto->where('id', $id);
+        $isID     = 0;
+        if ($id) {
+          $hitokoto->where('id', $id);
+          $isID = 1;
+        }
         if ($type) $hitokoto->where('type', $type);
         if (!$id) $hitokoto->inRandomOrder();
 
         $result = $hitokoto->first();
-        if (!$result) return view('errors.404');
+        if (!$result) return abort(404);
 
         $result->from = $result->from ?: "无名";
         $likes = $result->like_number->count();
 
-        return view('hitokoto', compact('result', 'likes'));
+        return view('hitokoto', compact('result', 'likes', 'isID'));
     }
 
     public function upload()

@@ -18,7 +18,7 @@ class AdminTicketController extends Controller
     public function Index()
     {
         $data = [
-            'tickets' => Tickets::whereNull('deleted_at')->orderBy('updated_at', 'desc')->get()
+            'tickets' => Tickets::whereNull('deleted_at')->orderBy('created_at', 'desc')->get()
         ];
         return view('admin.ticket.index')->with($data);
     }

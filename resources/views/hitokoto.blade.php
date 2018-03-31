@@ -11,7 +11,14 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/dist/material.indigo-pink.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daneden/animate.css/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/moeplayer/aplayer@1.10.0/dist/APlayer.min.css">
     <link rel="stylesheet" href="/css/hitokoto.css">
+    <style>
+       .aplayer-lrc-contents > p {
+          color: #fff !important;
+          text-shadow: none !important;
+        }
+    </style>
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106578243-1"></script>
     <script>
@@ -109,14 +116,16 @@
 
     <!--版权信息-->
     <p id="footer">
-        Copyright © 2018 hitokoto.cn 沪ICP备16031287号-1 Email:i@loli.online QQ群：70029304
+        Copyright © 2018 Moecraft All Rights Reserved.  沪ICP备16031287号-1 Email:i@loli.online QQ群：70029304
     </p>
+    <div id="aplayer"></div>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.slim.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/material.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/MoePlayer/cPlayer@3.2.1/dist/cplayer-noview.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/MoePlayer/APlayer@latest/dist/APlayer.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert@2.1.0/dist/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script>
+        window.hitokoto_playlist = [ 26116370, 22682066, 32317208, 426850114, 376417, 408332757, 3852042, 4172700 ];
         // CheckOS
         var os = function () {
             var ua = navigator.userAgent,
@@ -204,11 +213,13 @@
                         });
                 });
         }
-        window.setTimeout(loveHitokoto, 10000);
-
-        cplayer.prototype.add163 = function add163(id) {
+        var isID = {{ $isID  }};
+        if (!isID) {
+          window.setTimeout(loveHitokoto, 10000);
+        }
+        APlayer.prototype.add163 = function add163(id) {
             if (!id) throw new Error("Unable Property.");
-            return fetch("https://v1.hitokoto.cn/nm/summary/" + id + "?common=true").then(function (res) {
+            return fetch("https://v1.hitokoto.cn/nm/summary/" + id + "?common=true&lyric=true").then(function (res) {
                 return res.json()
             }).then(function (data) {
                 if (data.code == 400) return false;
@@ -217,13 +228,12 @@
                     name: data.songs[0].name,
                     artist: data.songs[0].artists.map(function (ar) {
                         return ar
-                    }).join('/'),
-                    poster: data.songs[0].album.picture,
-                    src: data.songs[0].url,
-                    album: data.songs[0].album.name
+                    }).join(' / '),
+                    cover: data.songs[0].album.picture,
+                    url: data.songs[0].url,
+                    lrc: data.songs[0].lyric.base
                 }
-
-                this.add(obj);
+                this.list.add(obj);
                 return obj;
             }.bind(this))
         }
@@ -235,6 +245,8 @@
                 // isAuto
                 if (player_auto === "autod") {
                     activePlayer();
+                } else {
+                    activePlayer(false);
                 }
             } else {
                 swal("是否需要播放我们精选的乐曲来欣赏一言呢？", {
@@ -249,42 +261,57 @@
                         Cookies.set('player_auto', 'autod', { expires: 365 });
                     } else {
                         // do nothing
-                        Cookies.set('player_auto', 'no', { expires: 365 });
+                       activePlayer(false); 
+                       Cookies.set('player_auto', 'no', { expires: 365 });
                     }
                 });
             }
         }
-
-        function activePlayer() {
-            try {
-                window.player = new cplayer({
-                    playlist: [{
-                        src: "https://v1.hitokoto.cn/nm/redirect/music/3852042",
-                        name: "New Soul",
-                        artist: "Yael Naim"
-                    }]
+        function fetchPlaylist(playlist) {
+           return new Promise(function (resolve, reject) {
+             fetch("https://v1.hitokoto.cn/nm/summary/" + playlist.join(',') + "?common=true&lyric=true")
+               .then(function(res) {
+                  return res.json();
+               })
+               .then(function(data) {
+                 var list = data.songs;
+                 var sets = [];
+                 list.map(function(song) {
+                    sets.push({
+                      name: song.name,
+                      artist: song.artists.map(function (ar) {
+                          return ar
+                      }).join(' / '),
+                      cover: song.album.picture,
+                      url: song.url,
+                      lrc: song.lyric.base
+                    });
+                 });
+                 resolve(sets); 
+               })
+               .catch(function(err) {
+                 reject(err);
+               });
+           });
+        }
+        function activePlayer(auto = true) {
+            fetchPlaylist(window.hitokoto_playlist)
+                .then(function(songs) {
+                    window.player = new APlayer({
+                      container: document.getElementById('aplayer'),
+                      lrcType: 1,
+                      fixed: true,
+                      autoplay: auto,
+                      preload: 'metadata',
+                      audio: songs
+                    });
+                    window.player.lrc.toggle();
+                    window.player.volume(0.5);
+                    $("#active_player").text("暂停");
+                })
+                .catch(function(err) {
+                    console.log(err);
                 });
-                // 163 ids
-                var ids = [376417, 408332757];
-                var events = [];
-                for (var index = 0; index < ids.length; index++) {
-                    events.push(player.add163(ids[index]))
-                }
-                Promise.all(events)
-                    .then(function (ok) {
-                        window.player.setVolume(0.5);
-                        window.player.play(); // autoplayer
-                        $("#active_player").text("暂停");
-                        console.log("Player Loads done!")
-                    })
-                    .catch(function (err) {
-                        // Ignore Err
-                        console.error(err)
-                    })
-            } catch (e) {
-                // ignore
-		console.error(e);
-            }
         }
     </script>
     <script type="text/javascript">
@@ -292,12 +319,14 @@
         function like(ID) {
             fetch("/Like?ID=" + ID)
               .then(function(response){
-                return response.text();
+                return response.json();
               })
-              .then(function(message){
-                swal(message, { button: "好的" });
-                $("#like_number1").attr("data-badge", like_num + 1);
-                $("#like_number2").attr("data-badge", like_num + 1);
+              .then(function(data){
+                swal(data.message, { button: "好的" });
+                if (data.status === 0) {
+                  $("#like_number1").attr("data-badge", like_num + 1);
+                  $("#like_number2").attr("data-badge", like_num + 1);
+                }
               });
         }
 
@@ -307,7 +336,7 @@
         });
        $("#active_player").click(function() {
          if (window.player) {
-           if (window.player.played) {
+           if (!window.player.audio.paused) {
              // pause
              window.player.pause();
              $("#active_player").text("播放");

@@ -24,13 +24,19 @@ class LikeController extends Controller
       $result = Like::where("sentenceID", $id)->get();
       $set = array();
       foreach($result as $raw) {
-        $set[] = $raw;
+        $display = [
+          "id" => $raw -> ID,
+          "sid" => $raw -> sentenceID,
+          "ip" => (Input::get('realIP')) ? ($raw -> ip) : (preg_replace('~(\d+)\.(\d+)\.(\d+)\.(\d+)~', "$1.$2.*.*", $raw -> ip)),
+          "created_time" => $raw -> time
+        ];
+        $set[] = $display;
       }
       return response() -> json([
         "status" => 0,
         "message" => "ok",
         "data" => [
-          "set" => $set,
+          "sets" => $set,
           "total" => count($set)
         ]
       ]);
@@ -38,7 +44,11 @@ class LikeController extends Controller
     public function index(){
         preg_match_all("/\\d+/m", Input::get("ID"), $matches);
         if ($matches[0][0]!= Input::get("ID")){
-            return "谢谢主人的喜欢~~"; 
+            return response()->json([
+                "status" => 400,
+                "message" => "谢谢主人的喜欢~~",
+                "data" => []
+            ]); 
         }
         function getIp(){ 
             $onlineip=''; 
@@ -54,13 +64,35 @@ class LikeController extends Controller
             return $onlineip; 
         }
         
-        $result = DB::select('select * from hitokoto_like where sentenceID = '.$_GET['ID'].' AND ip = \''.getIp()."'");
-        if($result){
-            return "句子们已经感受到你的爱了哦~"; 
-        }
-        DB::insert('insert into hitokoto_like (ID, sentenceID, ip, time) values (NULL, ?, ?, NOW())', [$_GET['ID'], getIp()]);
-        return "谢谢主人的喜欢~"; 
-    
-    
-}
+        $result = Like::where('sentenceID', '=', Input::get('ID'))->where('ip', '=', getIp())->get();
+        if(count($result) > 0){
+            return response()->json([
+                "status" => 1,
+                "message" => "句子们已经感受到你的爱了哦~",
+                "data" => [
+                     "ip" => getIp(),
+                     //"set" => $result
+                     "sets" => [
+                       "id" => $result[0] -> ID,
+                       "sid" => $result[0] -> sentenceID,
+                       "ip" => $result[0] -> ip,
+                       "created_time" => $result[0] -> time
+                     ] 
+                ]
+            ]); 
+        } else {
+            Like::insert([
+                "sentenceID" => Input::get("ID"),
+                "ip" => getIp(),
+                "time" => DB::raw('NOW()')
+            ]);
+            return response()->json([
+                "status" => 0,
+                "message" => "谢谢主人的喜欢~",
+                "data" => [
+                    "ip" => getIp()
+                ] 
+            ]); 
+       }
+    }
 }

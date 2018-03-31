@@ -8,7 +8,7 @@
             <thead>
             <tr style="height:60px">
                 <th class="mdl-data-table__cell--non-numeric"><img style="border-radius:100%;"
-                                                                   src="https://secure.gravatar.com/avatar/{{ md5(Auth::user()->email) }}?s=100&d=mm&r=g"
+                                                                   src="https://gravatar.loli.net//avatar/{{ md5(Auth::user()->email) }}?s=100&d=mm&r=g"
                                                                    height="40"
                                                                    width="40">&nbsp;&nbsp;&nbsp;{{ Auth::user()->name }}
                 </th>
