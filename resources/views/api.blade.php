@@ -22,12 +22,34 @@
 
                 </p>
                 <h4>2、Api</h4>
-                <p>
-                    提示:旧接口http://api.hitokoto.cn和https://sslapi.hitokoto.cn将在未来一段时间内停用之前的旧版本api，无缝切换(切换解析)到目前的v1新api。
-                </p>
-                <p>
-                    提示:Hitokoto预计将在2018年6-8月份做网站大版本更新。届时会有更多的新api加入，欢迎各位持续关注。v1的api不会受到大版本调整影响。
-                </p>
+                
+                <p>这是一个Hitokoto Api更新时间表：</p>
+                <table class="apitable" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr>
+                        <th  width="100"><b>时间</b></th>
+                        <th  width="200"><b>影响Api</b></th>
+                        <th  width="500"><b>调整</b></th>
+                    </tr>
+                    <tr>
+                        <td>2018年6月之前</td>
+                        <td>旧版API（http://api.hitokoto.cn和https://sslapi.hitokoto.cn）</td>
+                        <td>旧版API将在6月份之前以切换解析的方式合并到v1API中。也就意味着调整之后请求此API无异于请求v1API。调整后此接口的稳定性将不再受到维护。</td>
+                    </tr>
+                    <tr>
+                        <td>2018年7月之前</td>
+                        <td>v1API（https://v1.hitokoto.cn）</td>
+                        <td>v1API将发布最终版本。v1接口将会在未来存在较长时间。</td>
+                    </tr>
+                    <tr>
+                        <td>Hitokoto v2正式上线运营（预计2018年8月）</td>
+                        <td>v2API（域名未知）</td>
+                        <td>上线v2API。</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br />
+                <p>以下为API详细信息：</p>
                 <p>
                     请求地址：<br/>
                     HTTP(s): https://v1.hitokoto.cn/

@@ -125,7 +125,77 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert@2.1.0/dist/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script>
-        window.hitokoto_playlist = [ 26116370, 22682066, 32317208, 426850114, 376417, 408332757, 3852042, 4172700 ];
+    function fetch163Playlist(playlist_id) {
+  return new Promise(function (ok, err) {
+    fetch("https://v1.hitokoto.cn/nm/playlist/" + playlist_id)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        var arr = [];
+        data.playlist.tracks.map(function (value) {
+          arr.push(value.id);
+        });
+        return arr;
+      })
+      .then(function (ids) {
+        return fetch163Songs(ids);
+      })
+      .then(function (data) {
+        ok(data);
+      })
+      .catch(function (e) {
+        err(e);
+      });
+  })
+}
+
+function fetch163Songs(IDS) {
+  var ids;
+  switch (typeof IDS) {
+  case 'number':
+    ids = [IDS];
+    break;
+  case 'object':
+    if (!Array.isArray(IDS)) {
+      return new Error("Please enter array or number");
+    }
+    ids = IDS;
+    break;
+  default:
+    throw new Error("Please enter array or number");
+    break;
+  }
+  return new Promise(function (ok, err) {
+    fetch("https://v1.hitokoto.cn/nm/summary/" + ids.join(",") + "?lyric=true&common=true")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        var songs = [];
+        data.songs.map(function (song) {
+          songs.push({
+            name: song.name,
+            url: song.url,
+            artist: song.artists.join("/"),
+            album: song.album.name,
+            pic: song.album.picture,
+            lrc: song.lyric
+          });
+        });
+        return songs;
+      })
+      .then(function (result) {
+        ok(result);
+      })
+      .catch(function (e) {
+        err(e);
+      });
+  });
+}
+    </script>
+    <script>
+        window.hitokoto_playlist = 2158283120;
         // CheckOS
         var os = function () {
             var ua = navigator.userAgent,
@@ -219,19 +289,14 @@
         }
         APlayer.prototype.add163 = function add163(id) {
             if (!id) throw new Error("Unable Property.");
-            return fetch("https://v1.hitokoto.cn/nm/summary/" + id + "?common=true&lyric=true").then(function (res) {
-                return res.json()
-            }).then(function (data) {
-                if (data.code == 400) return false;
-
+            return fetch163Song(id)
+              .then(function (data) {
                 var obj = {
-                    name: data.songs[0].name,
-                    artist: data.songs[0].artists.map(function (ar) {
-                        return ar
-                    }).join(' / '),
-                    cover: data.songs[0].album.picture,
-                    url: data.songs[0].url,
-                    lrc: data.songs[0].lyric.base
+                    name: data[0].name,
+                    artist: data[0].artist,
+                    cover: data[0].pic,
+                    url: data[0].url,
+                    lrc: data[0].lrc.base
                 }
                 this.list.add(obj);
                 return obj;
@@ -267,35 +332,21 @@
                 });
             }
         }
-        function fetchPlaylist(playlist) {
-           return new Promise(function (resolve, reject) {
-             fetch("https://v1.hitokoto.cn/nm/summary/" + playlist.join(',') + "?common=true&lyric=true")
-               .then(function(res) {
-                  return res.json();
-               })
-               .then(function(data) {
-                 var list = data.songs;
-                 var sets = [];
-                 list.map(function(song) {
-                    sets.push({
-                      name: song.name,
-                      artist: song.artists.map(function (ar) {
-                          return ar
-                      }).join(' / '),
-                      cover: song.album.picture,
-                      url: song.url,
-                      lrc: song.lyric.base
-                    });
-                 });
-                 resolve(sets); 
-               })
-               .catch(function(err) {
-                 reject(err);
-               });
-           });
-        }
         function activePlayer(auto = true) {
-            fetchPlaylist(window.hitokoto_playlist)
+            fetch163Playlist(window.hitokoto_playlist)
+                .then(function(data) {
+                  var songs = [];
+                  data.map(function(song) {
+                     songs.push({
+                       name: song.name,
+                       artist: song.artist,
+                       cover: song.pic,
+                       url: song.url,
+                       lrc: song.lrc.base
+                     });
+                  });
+                  return songs;
+                })
                 .then(function(songs) {
                     window.player = new APlayer({
                       container: document.getElementById('aplayer'),

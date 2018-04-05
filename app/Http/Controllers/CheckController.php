@@ -7,6 +7,8 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Fukuball\Jieba\Jieba;
+use Fukuball\Jieba\Finalseg;
+use Fukuball\Jieba\JiebaAnalyse;
 
 class CheckController extends Controller
 {
@@ -20,7 +22,9 @@ class CheckController extends Controller
         //  return '检测错误';
         //}
         // return '';
-        $result = DB::select("SELECT * FROM `hitokoto_pending` WHERE `id` ='".Input::get("id")."'");
+        
+        //$result = DB::select("SELECT * FROM `hitokoto_pending` WHERE `id` ='".Input::get("id")."'");
+        
         //return $result;
         //return $result[0]->hitokoto;
         // if(file_get_contents ("http://hitokoto.cn/Qcloud/test.php")!="OK"){
@@ -30,9 +34,28 @@ class CheckController extends Controller
         //if(!$a){
         //    return "无分词结果。";
         //}
-        Jieba::init();
-        $a = Jieba::cut($result[0]->hitokoto, true);
-        // return $a;
+        
+        
+        //Jieba::init();
+        //JiebaAnalyse::init();
+        $result = DB::select("SELECT * FROM `hitokoto_sentence` WHERE `id` = 1");
+        $back = '';
+        return "搜索结果：".$result;
+        
+        /*
+        
+        for ($i = 0; $i < count($result); $i++) {
+            $sentence=$result[$i]->hitokoto;
+            $a = JiebaAnalyse::extractTags($sentence, $top_k = 20);
+            $back = $back . $a;
+        }
+        return "搜索结果：".$back;
+        
+        //$a = Jieba::cut($result[0]->hitokoto, true);
+        
+        
+        $a = JiebaAnalyse::extractTags($result[0]->hitokoto, $top_k = 20);
+        return $a;
         $b = 0;
         for ($i = 0; $i < count($a); $i++) {
             if($a[$i]){
@@ -45,6 +68,7 @@ class CheckController extends Controller
             }
             
         }
+        */
         if (!$back){
             $back = "无相近结果。";
         }else{
