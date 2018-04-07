@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'HitokotoController@index');
-
+Route::get('/status', 'StatusController@Index');
 Route::any('/add', 'AddController@index');
 
 Route::any('/Like', 'LikeController@index');

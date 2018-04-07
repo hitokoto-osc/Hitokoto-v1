@@ -8,7 +8,7 @@
     <meta name="keywords" content="Hitokoto,一言,Api,免费Api,一言网,Hitokoto.cn,感动,动漫,二次元,台词,语句">
     <meta name="description" content="一言(Hitokoto)网创立于2016年，隶属于萌创Team，目前网站主要提供一句话服务。不论在哪里，总有那么几个句子能穿透你的心。把这些句子汇聚起来，传递更多的感动。简单来说，一言(Hikototo)指的就是一句话，可以是动漫中的台词，也可以是网络上的各种小段子。留下你所喜欢的那一句话，与大家分享，这就是一言(Hitokoto)存在的目的。">
     <link rel="stylesheet" href="/css/hitokoto.css">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/dist/material.indigo-pink.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daneden/animate.css/animate.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/moeplayer/aplayer@1.10.0/dist/APlayer.min.css">
@@ -63,7 +63,7 @@
                     </a>
                     <a class="mdl-navigation__link" href="/api">API</a>
                     @if (Auth::guest())
-                    <a class="mdl-navigation__link" href="/login">登陆</a>
+                    <a class="mdl-navigation__link" href="/login">登录</a>
                     <a class="mdl-navigation__link" href="/register">戳我添加⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄</a>
                     @else
                     <a class="mdl-navigation__link" href="/home">{{ Auth::user()->name }}（用户中心）</a>
@@ -84,7 +84,7 @@
                 </a>
                 <a class="mdl-navigation__link" href="/api">API</a>
                 @if (Auth::guest())
-                <a class="mdl-navigation__link" href="/login">登陆</a>
+                <a class="mdl-navigation__link" href="/login">登录</a>
                 <a class="mdl-navigation__link" href="/register">想要添加一言？戳我戳我 ⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄</a>
                 @else
                 <a class="mdl-navigation__link" href="/home">{{ Auth::user()->name }}</a>
@@ -167,7 +167,7 @@ function fetch163Songs(IDS) {
     break;
   }
   return new Promise(function (ok, err) {
-    fetch("https://v1.hitokoto.cn/nm/summary/" + ids.join(",") + "?lyric=true&common=true")
+    fetch("https://v1.hitokoto.cn/nm/summary/" + ids.join(",") + "?lyric=true&common=true&quick=true")
       .then(function (response) {
         return response.json();
       })

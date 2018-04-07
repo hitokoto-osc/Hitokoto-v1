@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Hitokoto - 一言</title>
     
-    <link rel="stylesheet" href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/dist/material.indigo-pink.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daneden/animate.css/animate.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/solarized-dark.min.css">
@@ -26,7 +26,7 @@
                     <a class="mdl-navigation__link" href="/">首页</a>
                     <a class="mdl-navigation__link" href="/api">API</a>
                     @if (Auth::guest())
-                    <a class="mdl-navigation__link" href="/login">登陆</a>
+                    <a class="mdl-navigation__link" href="/login">登录</a>
                     <a class="mdl-navigation__link" href="/register">注册</a>
                     @else
                     <a class="mdl-navigation__link" href="/home">{{ Auth::user()->name }}</a>
@@ -44,7 +44,7 @@
                 <a class="mdl-navigation__link" href="/">首页</a>
                 <a class="mdl-navigation__link" href="/api">API</a>
                 @if (Auth::guest())
-                <a class="mdl-navigation__link" href="/login">登陆</a>
+                <a class="mdl-navigation__link" href="/login">登录</a>
                 <a class="mdl-navigation__link" href="/register">注册</a>
                 @else
                 <a class="mdl-navigation__link" href="/home">{{ Auth::user()->name }}（用户中心）</a>
