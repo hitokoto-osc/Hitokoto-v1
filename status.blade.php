@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4/dist/yeti/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.0.0/dist/yeti/bootstrap.min.css">
     <title>一言 - 状态统计</title>
     <style>
       .lead {
@@ -26,17 +26,25 @@
         width: 100%;
         color: #fff;
       }
-	  #version {
-	    font-size: .7em;
-        color: rgb(81, 134, 255);
-	  }
     </style>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106578243-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments)
+        };
+        gtag('js', new Date());
+
+        gtag('config', 'UA-106578243-1');
+    </script>
   </head>
   <body style="position: relative;">
     <div class="container">
       <div class="row mt-5">
         <div class="col-lg-12">
-          <h1>一言状态统计 <span id="version"></span></h1>
+          <h1>一言状态统计</h1>
           <p class="lead">
             为了采集使用状况， 一言会记录接口请求的详细信息。出于透明互联网的共同目的， 我们在此将信息公开。
           </p>
@@ -64,24 +72,13 @@
         <div class="col-lg-4 offset-lg-1">
           <div class="card">
             <div class="card-header">
-              请求统计
+              总数统计
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">请求总数: <i id="total"></i></li>
-              <li class="list-group-item">过去一分: <i id="pastMinute"></i></li>
-              <li class="list-group-item">过去一时: <i id="pastHour"></i></li>
-              <li class="list-group-item">过去一日: <i id="pastDay"></i></li>
-            </ul>
-          </div>
-		  <div class="card mt-5">
-            <div class="card-header">
-              状态统计
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">服务负载: <i id="load"></i></li>
-              <li class="list-group-item">一言数目: <i id="hitokotoNumber"></i></li>
-              <li class="list-group-item">一言分类: <i id="hitokotoCategroy"></i></li>
-              <li class="list-group-item">使用内存: <i id="memory"></i></li>
+              <li class="list-group-item">总数: <i id="total"></i></li>
+              <li class="list-group-item">过去一分钟: <i id="pastMinute"></i></li>
+              <li class="list-group-item">过去一小时: <i id="pastHour"></i></li>
+              <li class="list-group-item">过去一天: <i id="pastDay"></i></li>
             </ul>
           </div>
         </div>
@@ -96,11 +93,11 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@antv/g2@3/build/g2.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@antv/data-set@0/build/data-set.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@antv/g2@3.0.5/dist/g2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@antv/data-set@0.8.6/dist/data-set.min.js"></script>
     <!--[if IE]>
     <script src="https://cdn.jsdelivr.net/npm/es-promise@1.0.3/dist/promise.umd.min.js"></script>
     <![endif]-->
@@ -170,21 +167,11 @@
       });
       chart.online.render();
       function fetchStatus() {
-        fetch("https://status.api.a632079.me/")
+        fetch("https://v1.hitokoto.cn/status")
           .then(function(response) {
             return response.json();
           })
           .then(function(data) {
-			// Update Version
-			$('#version').text('v' + data.version);
-			// Update Status
-			for (var i=0; i < data.status.load.length; i++) {
-			  data.status.load[i] = data.status.load[i].toFixed(2)
-			}
-			$('#load').text(data.status.load.toString() || '暂无数据');
-			$('#hitokotoNumber').text(data.status.hitokoto.total || '暂无数据');
-			$('#hitokotoCategroy').text(data.status.hitokoto.categroy.toString() || '暂无数据')
-			$('#memory').text(data.status.memory.toFixed(2) + ' MB' || '暂无数据')
             // Update Count 
             $('#total').text(data.requests.all.total || '暂无数据');
             $('#pastMinute').text(data.requests.all.pastMinute || '暂无数据');
@@ -230,11 +217,10 @@
             });
             chart.online.changeData(online_dv);
             
-            window.setTimeout(fetchStatus, 10000);
+            window.setTimeout(fetchStatus, 5000);
           });
       }
       fetchStatus();
     </script>
   </body>
 </html>
-

@@ -6,9 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
-use Fukuball\Jieba\Jieba;
-use Fukuball\Jieba\Finalseg;
-use Fukuball\Jieba\JiebaAnalyse;
 
 class CheckController extends Controller
 {
@@ -23,7 +20,7 @@ class CheckController extends Controller
         //}
         // return '';
         
-        //$result = DB::select("SELECT * FROM `hitokoto_pending` WHERE `id` ='".Input::get("id")."'");
+        $result = DB::select("SELECT * FROM `hitokoto_pending` WHERE `id` ='".Input::get("id")."'");
         
         //return $result;
         //return $result[0]->hitokoto;
@@ -35,15 +32,30 @@ class CheckController extends Controller
         //    return "无分词结果。";
         //}
         
-        
+        $so = \scws_new();
+        $so -> set_charset('utf8');
+        $so -> set_dict('/usr/local/scws/etc/dict.utf8.xdb');
+        $so -> send_text($result[0]->hitokoto); 
+	$results = $so -> get_words("~un");
+        $words = [];
+        foreach($results as $v) {
+ 	    $words[] = $v["word"];
+	}
+	if (!$words) {
+             $so -> close();
+             return "对文本分词失败. (无法获得分词结果)";
+        }
+        $so -> close();
+	// $words = $so -> get_result
         //Jieba::init();
         //JiebaAnalyse::init();
-        $result = DB::select("SELECT * FROM `hitokoto_sentence` WHERE `id` = 1");
+        // $result = DB::select("SELECT * FROM `hitokoto_sentence` WHERE `id` = 1");
         $back = '';
-        return "搜索结果：".$result;
+        // var_dump($results);
+        return "搜索结果：".implode(",", $words);
+        
         
         /*
-        
         for ($i = 0; $i < count($result); $i++) {
             $sentence=$result[$i]->hitokoto;
             $a = JiebaAnalyse::extractTags($sentence, $top_k = 20);

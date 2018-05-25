@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "600efeb7444de5f3d23aa567c3a80091",
+    "content-hash": "0cd2cbf0ac925f02345f839e66a8525a",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -130,16 +130,16 @@
         },
         {
             "name": "caouecs/laravel-lang",
-            "version": "3.0.43",
+            "version": "3.0.47",
             "source": {
                 "type": "git",
                 "url": "https://github.com/caouecs/Laravel-lang.git",
-                "reference": "73087e07f164e2746bec1c9c116668d100e0af3b"
+                "reference": "9d618e137c4fd4a8e4556a69ab884aa0c413417c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/caouecs/Laravel-lang/73087e07f164e2746bec1c9c116668d100e0af3b.zip",
-                "reference": "73087e07f164e2746bec1c9c116668d100e0af3b",
+                "url": "https://files.phpcomposer.com/files/caouecs/Laravel-lang/9d618e137c4fd4a8e4556a69ab884aa0c413417c.zip",
+                "reference": "9d618e137c4fd4a8e4556a69ab884aa0c413417c",
                 "shasum": ""
             },
             "require-dev": {
@@ -168,7 +168,7 @@
                 "laravel",
                 "lpm"
             ],
-            "time": "2018-01-28T10:19:47+00:00"
+            "time": "2018-04-24T11:50:34+00:00"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -323,56 +323,6 @@
                 "string"
             ],
             "time": "2015-11-06T14:35:42+00:00"
-        },
-        {
-            "name": "fukuball/jieba-php",
-            "version": "0.33",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fukuball/jieba-php.git",
-                "reference": "a5980dc88ae98a261a0bdb1130be14d0136b373f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://files.phpcomposer.com/files/fukuball/jieba-php/a5980dc88ae98a261a0bdb1130be14d0136b373f.zip",
-                "reference": "a5980dc88ae98a261a0bdb1130be14d0136b373f",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">= 5.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.4.1",
-                "satooshi/php-coveralls": "dev-master",
-                "squizlabs/php_codesniffer": "1.5.6"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/class/Jieba.php",
-                    "src/class/JiebaAnalyse.php",
-                    "src/class/Finalseg.php",
-                    "src/class/Posseg.php",
-                    "src/vendor/multi-array/MultiArray.php",
-                    "src/vendor/multi-array/Factory/MultiArrayFactory.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "fukuball",
-                    "email": "fukuball@gmail.com"
-                }
-            ],
-            "description": "結巴中文分詞（PHP 版本）：做最好的 PHP 中文分詞、中文斷詞組件",
-            "keywords": [
-                "Jieba",
-                "php"
-            ],
-            "time": "2017-11-22T10:02:12+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -598,20 +548,20 @@
         },
         {
             "name": "jeremeamia/SuperClosure",
-            "version": "2.3.0",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeremeamia/super_closure.git",
-                "reference": "443c3df3207f176a1b41576ee2a66968a507b3db"
+                "reference": "5707d5821b30b9a07acfb4d76949784aaa0e9ce9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/jeremeamia/super_closure/443c3df3207f176a1b41576ee2a66968a507b3db.zip",
-                "reference": "443c3df3207f176a1b41576ee2a66968a507b3db",
+                "url": "https://files.phpcomposer.com/files/jeremeamia/super_closure/5707d5821b30b9a07acfb4d76949784aaa0e9ce9.zip",
+                "reference": "5707d5821b30b9a07acfb4d76949784aaa0e9ce9",
                 "shasum": ""
             },
             "require": {
-                "nikic/php-parser": "^1.2|^2.0|^3.0",
+                "nikic/php-parser": "^1.2|^2.0|^3.0|^4.0",
                 "php": ">=5.4",
                 "symfony/polyfill-php56": "^1.0"
             },
@@ -621,7 +571,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3-dev"
+                    "dev-master": "2.4-dev"
                 }
             },
             "autoload": {
@@ -652,7 +602,7 @@
                 "serialize",
                 "tokenizer"
             ],
-            "time": "2016-12-07T09:37:55+00:00"
+            "time": "2018-03-21T22:21:57+00:00"
         },
         {
             "name": "laravel/framework",
@@ -786,16 +736,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.43",
+            "version": "1.0.44",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "1ce7cc142d906ba58dc54c82915d355a9191c8a8"
+                "reference": "168dbe519737221dc87d17385cde33073881fd02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/thephpleague/flysystem/1ce7cc142d906ba58dc54c82915d355a9191c8a8.zip",
-                "reference": "1ce7cc142d906ba58dc54c82915d355a9191c8a8",
+                "url": "https://files.phpcomposer.com/files/thephpleague/flysystem/168dbe519737221dc87d17385cde33073881fd02.zip",
+                "reference": "168dbe519737221dc87d17385cde33073881fd02",
                 "shasum": ""
             },
             "require": {
@@ -866,20 +816,20 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2018-03-01T10:27:04+00:00"
+            "time": "2018-04-06T09:58:14+00:00"
         },
         {
             "name": "mews/captcha",
-            "version": "2.1.8",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mewebstudio/captcha.git",
-                "reference": "5482c80def107c3ad149a64f13c46ebe9725f261"
+                "reference": "c9885e31bb2c30fe185c1af6078a53a3bef5db8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/mewebstudio/captcha/5482c80def107c3ad149a64f13c46ebe9725f261.zip",
-                "reference": "5482c80def107c3ad149a64f13c46ebe9725f261",
+                "url": "https://files.phpcomposer.com/files/mewebstudio/captcha/c9885e31bb2c30fe185c1af6078a53a3bef5db8f.zip",
+                "reference": "c9885e31bb2c30fe185c1af6078a53a3bef5db8f",
                 "shasum": ""
             },
             "require": {
@@ -933,7 +883,7 @@
                 "laravel5 Captcha",
                 "laravel5 Security"
             ],
-            "time": "2018-02-28T12:36:07+00:00"
+            "time": "2018-04-25T13:44:49+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1059,16 +1009,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.24.2",
+            "version": "1.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "bba6c6e410c6b4317e37a9474aeaa753808c3875"
+                "reference": "ef81c39b67200dcd7401c24363dcac05ac3a4fe9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/briannesbitt/Carbon/bba6c6e410c6b4317e37a9474aeaa753808c3875.zip",
-                "reference": "bba6c6e410c6b4317e37a9474aeaa753808c3875",
+                "url": "https://files.phpcomposer.com/files/briannesbitt/Carbon/ef81c39b67200dcd7401c24363dcac05ac3a4fe9.zip",
+                "reference": "ef81c39b67200dcd7401c24363dcac05ac3a4fe9",
                 "shasum": ""
             },
             "require": {
@@ -1080,14 +1030,9 @@
                 "phpunit/phpunit": "^4.8.35 || ^5.7"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.23-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
-                    "Carbon\\": "src/Carbon/"
+                    "": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1108,7 +1053,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-03-10T10:10:14+00:00"
+            "time": "2018-04-23T09:02:57+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -1163,16 +1108,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v1.4.2",
+            "version": "v1.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "965cdeb01fdcab7653253aa81d40441d261f1e66"
+                "reference": "9b3899e3c3ddde89016f576edb8c489708ad64cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/paragonie/random_compat/965cdeb01fdcab7653253aa81d40441d261f1e66.zip",
-                "reference": "965cdeb01fdcab7653253aa81d40441d261f1e66",
+                "url": "https://files.phpcomposer.com/files/paragonie/random_compat/9b3899e3c3ddde89016f576edb8c489708ad64cd.zip",
+                "reference": "9b3899e3c3ddde89016f576edb8c489708ad64cd",
                 "shasum": ""
             },
             "require": {
@@ -1207,7 +1152,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2017-03-13T16:22:52+00:00"
+            "time": "2018-04-04T21:48:54+00:00"
         },
         {
             "name": "psr/http-message",
@@ -1434,7 +1379,7 @@
         },
         {
             "name": "symfony/class-loader",
-            "version": "v3.4.6",
+            "version": "v3.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/class-loader.git",
@@ -1607,16 +1552,16 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v3.4.6",
+            "version": "v3.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "58990682ac3fdc1f563b7e705452921372aad11d"
+                "reference": "fdd5abcebd1061ec647089c6c41a07ed60af09f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/event-dispatcher/58990682ac3fdc1f563b7e705452921372aad11d.zip",
-                "reference": "58990682ac3fdc1f563b7e705452921372aad11d",
+                "url": "https://files.phpcomposer.com/files/symfony/event-dispatcher/fdd5abcebd1061ec647089c6c41a07ed60af09f8.zip",
+                "reference": "fdd5abcebd1061ec647089c6c41a07ed60af09f8",
                 "shasum": ""
             },
             "require": {
@@ -1666,7 +1611,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2018-02-14T10:03:57+00:00"
+            "time": "2018-04-06T07:35:25+00:00"
         },
         {
             "name": "symfony/finder",
@@ -2271,6 +2216,49 @@
             "time": "2016-07-26T08:03:56+00:00"
         },
         {
+            "name": "vanry/scws",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vanry/SCWS.git",
+                "reference": "19db1881600d780cb607d328807076038a094cf3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/vanry/SCWS/19db1881600d780cb607d328807076038a094cf3.zip",
+                "reference": "19db1881600d780cb607d328807076038a094cf3",
+                "shasum": ""
+            },
+            "require": {
+                "ext-scws": ">=0.2.1",
+                "illuminate/support": "~5.1",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Latrell\\Scws\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Latrell Chan",
+                    "email": "i@latrell.me"
+                }
+            ],
+            "description": "简易中文分词系统在Laravel的封装包。",
+            "homepage": "https://github.com/Latrell/SCWS",
+            "keywords": [
+                "SCWS",
+                "laravel"
+            ],
+            "time": "2017-09-23T09:18:16+00:00"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v2.4.0",
             "source": {
@@ -2684,23 +2672,23 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.7.5",
+            "version": "1.7.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401"
+                "reference": "33a7e3c4fda54e912ff6338c48823bd5c0f0b712"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/phpspec/prophecy/dfd6be44111a7c41c2e884a336cc4f461b3b2401.zip",
-                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401",
+                "url": "https://files.phpcomposer.com/files/phpspec/prophecy/33a7e3c4fda54e912ff6338c48823bd5c0f0b712.zip",
+                "reference": "33a7e3c4fda54e912ff6338c48823bd5c0f0b712",
                 "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.0.2",
                 "php": "^5.3|^7.0",
                 "phpdocumentor/reflection-docblock": "^2.0|^3.0.2|^4.0",
-                "sebastian/comparator": "^1.1|^2.0",
+                "sebastian/comparator": "^1.1|^2.0|^3.0",
                 "sebastian/recursion-context": "^1.0|^2.0|^3.0"
             },
             "require-dev": {
@@ -2743,7 +2731,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2018-02-19T10:16:54+00:00"
+            "time": "2018-04-18T13:57:24+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",

@@ -9,8 +9,8 @@
         "laravel/framework": "5.2.*",
         "caouecs/laravel-lang": "~3.0",
         "mews/captcha": "~2.0",
-        "barryvdh/laravel-ide-helper": "^2.2",
-        "fukuball/jieba-php": "^0.33.0"
+        "barryvdh/laravel-ide-helper": "^2.2.0",
+        "vanry/scws": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

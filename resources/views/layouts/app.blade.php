@@ -25,6 +25,8 @@
                 <nav class="mdl-navigation">
                     <a class="mdl-navigation__link" href="/">首页</a>
                     <a class="mdl-navigation__link" href="/api">API</a>
+                    <a class="mdl-navigation__link" href="/status">状态</a>
+
                     @if (Auth::guest())
                     <a class="mdl-navigation__link" href="/login">登录</a>
                     <a class="mdl-navigation__link" href="/register">注册</a>
@@ -43,6 +45,7 @@
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" href="/">首页</a>
                 <a class="mdl-navigation__link" href="/api">API</a>
+                <a class="mdl-navigation__link" href="/status">状态</a>
                 @if (Auth::guest())
                 <a class="mdl-navigation__link" href="/login">登录</a>
                 <a class="mdl-navigation__link" href="/register">注册</a>
@@ -68,7 +71,10 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/material.min.js"></script>
-
+    <!--[if IE]>
+    <script src="https://cdn.jsdelivr.net/npm/es-promise@1.0.3/dist/promise.umd.min.js"></script>
+    <![endif]-->
+    <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.4/fetch.js" integrity="sha256-VpQSBEw4wr6j5/6GsK33LrAE6Eq6+/Tq3JUbcCak6XY=" crossorigin="anonymous"></script>
 @yield('scripts')
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.12.0/build/highlight.min.js"></script>
 <script>

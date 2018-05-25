@@ -62,6 +62,7 @@
                         </div>
                     </a>
                     <a class="mdl-navigation__link" href="/api">API</a>
+                    <a class="mdl-navigation__link" href="/status">状态</a>
                     @if (Auth::guest())
                     <a class="mdl-navigation__link" href="/login">登录</a>
                     <a class="mdl-navigation__link" href="/register">戳我添加⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄</a>
@@ -83,6 +84,7 @@
                     <div id="like_number2" class="material-icons mdl-badge mdl-badge--overlap" data-badge="{{$likes}}">favorite</div>
                 </a>
                 <a class="mdl-navigation__link" href="/api">API</a>
+		<a class="mdl-navigation__link" href="/status">状态</a>
                 @if (Auth::guest())
                 <a class="mdl-navigation__link" href="/login">登录</a>
                 <a class="mdl-navigation__link" href="/register">想要添加一言？戳我戳我 ⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄</a>
@@ -119,6 +121,10 @@
         Copyright © 2018 Moecraft All Rights Reserved.  沪ICP备16031287号-1 Email:i@loli.online QQ群：70029304
     </p>
     <div id="aplayer"></div>
+    <!--[if IE]>
+    <script src="https://cdn.jsdelivr.net/npm/es-promise@1.0.3/dist/promise.umd.min.js"></script>
+    <![endif]-->
+    <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.slim.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/material.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/MoePlayer/APlayer@latest/dist/APlayer.min.js"></script>
