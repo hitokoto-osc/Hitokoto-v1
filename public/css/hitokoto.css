@@ -1,12 +1,8 @@
 @media screen and (min-width: 600px) {
 
     /* Hitokoto Page */
-    #hitokoto{
-        padding-top:18%;
-        margin-left: auto;
-        margin-right: auto;
-        z-index:1;
-        width:55%;
+    .hitokoto-fullpage {
+        width: 55%;
     }
     .background{
         -webkit-filter: brightness(0.6);
@@ -19,8 +15,9 @@
         z-index:-1;
         background:url(https://piccdn.freejishu.com/images/2018/03/11/qf3cu.jpg) center no-repeat;
         background-size:cover;
-    
+
     }
+    /* Content Style */
     .hitokoto-content {
         /*border-radius: 2px;*/
         padding: 80px 56px;
@@ -51,11 +48,12 @@
         border:1px   solid  #d7d7d7;
     }
     /* Hitokoto Page */
-    #hitokoto{
-        padding-top:50%;
-        margin-left: auto;
-        margin-right: auto;
-        z-index:1;
+    .hitokoto-fullpage {
+        margin-bottom: 10vh !important;
+    }
+
+    .hitokoto-fullpage .word {
+        line-height: 2.6rem !important;
     }
 
     .background{
@@ -76,25 +74,57 @@
 
 }
 /* Hitokoto Page */
-.text{
-    font-size:30px;
-    color:white;
-    line-height:1em;
-    font-family:'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
-}
-.text_author{
-    font-size:20px;
-    color:rgba(255,255,255,0.8);
+.hitokoto-fullpage {
+    position: relative;
+    color: white;
+    z-index: 1;
+    margin-top: 35vh;
+    margin-bottom: 35vh;
+    margin-left: auto;
+    margin-right: auto;
     font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
 }
-#footer{
+
+.hitokoto-fullpage .bracket {
+    font-size: 30px;
+}
+
+.hitokoto-fullpage .bracket.left {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.hitokoto-fullpage .bracket.right {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.hitokoto-fullpage .word {
+    font-size: 2.3rem;
+    text-align: center;
+    line-height: 50px;
+    word-break: normal;
+    margin: 0;
+    padding: 15px 50px;
+}
+
+.hitokoto-fullpage .author {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    float: right;
+    margin-top: 40px;
+}
+
+#footer {
     position: fixed;
     bottom: 5px;
-    right:5px;
-    margin-bottom:0px;
-    text-align:right;
-    z-index:4;
-    color:white;
+    right: 15px;
+    margin-bottom: 0px;
+    text-align: right;
+    z-index: 4;
+    color: white;
     font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
 }
 
@@ -103,35 +133,35 @@ header{
     box-shadow:0px 0px 3px #000000;
 }
 .hitokoto-ribbon {
-  width: 100%;
-  height: 25vh;
-  background-color: #3F51B5;
-  -webkit-flex-shrink: 0;
-      -ms-flex-negative: 0;
-          flex-shrink: 0;
+    width: 100%;
+    height: 25vh;
+    background-color: #3F51B5;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
 }
 
 .hitokoto-main {
-  margin-top: -20vh;
-  -webkit-flex-shrink: 0;
-      -ms-flex-negative: 0;
-          flex-shrink: 0;
+    margin-top: -20vh;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
 }
 
 
 .hitokoto-container {
-  max-width: 1800px;
-  width: calc(100% - 16px);
-  margin: 20px auto 20px auto;
+    max-width: 1800px;
+    width: calc(100% - 16px);
+    margin: 20px auto 20px auto;
 
 }
 
 .hitokoto-layout.is-small-screen .demo-content {
-  padding: 40px 28px;
+    padding: 40px 28px;
 }
 
 .hitokoto-footer .mdl-mini-footer--link-list a {
-  font-size: 13px;
+    font-size: 13px;
 }
 
 .ticket-table tr td p {

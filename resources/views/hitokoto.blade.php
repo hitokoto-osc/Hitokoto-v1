@@ -99,20 +99,14 @@
         </div>
         <main class="mdl-layout__content">
             <div class="page-content">
-                <!--hitokoto一言-->
-                <div id="hitokoto" class="animated fadeIn">
-                    <p style="text-align:left" class="text">『</p>
-                    <br/>
-                    <center>
-                        <p id="hitokoto_text" style="text-align:center;width:90%;margin-top:-40px" class="text">{{ $result->hitokoto }}</p>
-                    </center>
-                    <br/>
-                    <p style="text-align:right;margin-top:-40px" class="text">』</p>
-                    <br/>
-                    <p id="hitokoto_author" style="text-align:right" class="text_author">-「{{ $result->from }}」</p>
-                    <br/>
-                </div>
-            </div>
+		    	<!--hitokoto一言-->
+		    	<div id="hitokoto" class="hitokoto-fullpage animated fadeIn">
+		    		<div class="bracket left">『</div>
+		    		<div class="word" id="hitokoto_text">{{ $result->hitokoto }}</div>
+		    		<div class="bracket right">』</div>
+		    		<div class="author" id="hitokoto_author">-「{{ $result->from }}」</div>
+		    	</div>
+		    </div>
         </main>
     </div>
 
