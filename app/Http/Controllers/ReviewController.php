@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
-
+use App\Hitokoto;
 
 class ReviewController extends Controller
 {
@@ -15,17 +15,18 @@ class ReviewController extends Controller
         ini_set("error_reporting",E_ALL ^ E_NOTICE);
         if($_GET['action']=="1"){
             //通过
-            $result = DB::select("SELECT * FROM `hitokoto_pending` WHERE `id` ='".Input::get("id")."'");
-            $data["hitokoto"] = $result[0]->hitokoto;
-            $data["from"] = $result[0]->from;
-            $data["creator"] = $result[0]->creator;
-            $data["type"] = $result[0]->type;
-            $data["created_at"] = $result[0]->created_at;
-            DB::table("sentence")->insert($data);
+            $result = DB::table('pending')->where('id', (int)Input::get('id'))->first();
+            $data = new Hitokoto();
+            $data->hitokoto = $result->hitokoto;
+            $data->from = $result->from;
+            $data->creator = $result->creator;
+            $data->type = $result->type;
+            $data->created_at = $result->created_at;
+            $data->save();
 
-            $results = DB::select("SELECT * FROM `hitokoto_sentence` WHERE `hitokoto` ='".$result[0]->hitokoto."'");
+            $results = Hitokoto::where('hitokoto', $result->hitokoto)->first();
             if($results){
-                DB::delete('delete from `hitokoto_pending` where `id` = '.$result[0]->id);
+                DB::table('pending')->where('id', $result->id)->delete();
 //                $memcache_obj = new Memcache;
 //                $conn_status=$memcache_obj->connect('127.0.0.1', 11211);
 //                if(!$conn_status){
@@ -35,7 +36,7 @@ class ReviewController extends Controller
 //                    $memcache_obj->set('hitokoto_status', '2', MEMCACHE_COMPRESSED, 0);
 //                    $massage = "<br />缓存刷新成功.";
 //                }
-                return "审核通过.#".$results[0]->id;
+                return "审核通过.#".$results->id;
                 
             }else{
                 return "入库失败.";
@@ -51,7 +52,7 @@ class ReviewController extends Controller
             $data["created_at"] = $result[0]->created_at;
             DB::table("refuse")->insert($data);
             DB::delete('delete from `hitokoto_pending` where `id` = '.$result[0]->id);
-            return "入库成功.";
+            return "已拒绝.";
         }
         return "你能走到这证明PHP出错了.";
     }
