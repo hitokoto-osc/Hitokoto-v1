@@ -33,11 +33,11 @@
 }
 @media screen and (max-width: 600px) {
     /*table{
-        border-collapse: collapse;
-    }
-    td ,th  {
-        border:1px   solid  #d7d7d7;
-    }*/
+ *  *         border-collapse: collapse;
+ *   *             }
+ *    *                 td ,th  {
+ *     *                         border:1px   solid  #d7d7d7;
+ *      *                             }*/
     .mdl-layout__drawer-button {
         color: #fff;
     }
@@ -153,7 +153,15 @@ header{
     max-width: 1800px;
     width: calc(100% - 16px);
     margin: 20px auto 20px auto;
+}
 
+.hitokoto-container .mdl-shadow--2dp,
+.hitokoto-container .mdl-cell--8-col {
+  margin: 0 auto;
+}
+
+.hitokoto-container .mdl-cell--2-col {
+  display: none;
 }
 
 .hitokoto-layout.is-small-screen .demo-content {

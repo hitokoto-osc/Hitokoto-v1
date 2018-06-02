@@ -7,7 +7,7 @@
 @section('content')
     <div class="hitokoto-container mdl-grid" style="overflow-x: auto;">
         <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-            <div style="word-break:break-all;max-width:1250px;width:100%;font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif">
+            <div style="word-break:break-all;max-width:1250px;width:100%;font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;margin-left:auto;margin-right:auto;">
                 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 100%;">
                     <thead>
                     <tr style="white-space: nowrap">

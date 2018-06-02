@@ -21,7 +21,7 @@
     <div class="hitokoto-container mdl-grid">
         <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
             <table class="mdl-data-table mdl-cell--8-col mdl-js-data-table mdl-shadow--2dp ticket-table"
-                   style="max-width:1250px;word-break:break-all ;white-space: pre-wrap;width:100%;font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif">
+                   style="max-width:1250px;word-break:break-all ;white-space: pre-wrap;width:calc(83.3333333333% - 16px);font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif">
                 <thead>
                 <tr>
                     <th class="mdl-data-table__cell--non-numeric">工单回复列表</th>

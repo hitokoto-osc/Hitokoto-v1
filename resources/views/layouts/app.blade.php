@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/dist/material.indigo-pink.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daneden/animate.css/animate.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/solarized-dark.min.css">
-    <link rel="stylesheet" href="/css/hitokoto.css">
+    <link rel="stylesheet" href="/css/hitokoto.css?ts=1527949440372">
 </head>
 
 <body id="app-layout" style="font-family: 'Lato',sans-serif;">
