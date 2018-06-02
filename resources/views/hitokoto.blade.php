@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="Hitokoto,一言,Api,免费Api,一言网,Hitokoto.cn,感动,动漫,二次元,台词,语句">
     <meta name="description" content="一言(Hitokoto)网创立于2016年，隶属于萌创Team，目前网站主要提供一句话服务。不论在哪里，总有那么几个句子能穿透你的心。把这些句子汇聚起来，传递更多的感动。简单来说，一言(Hikototo)指的就是一句话，可以是动漫中的台词，也可以是网络上的各种小段子。留下你所喜欢的那一句话，与大家分享，这就是一言(Hitokoto)存在的目的。">
+    <link rel="icon" href="https://hitokoto.cn/favicon.ico?t=1527937218382">
     <link rel="stylesheet" href="/css/hitokoto.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/dist/material.indigo-pink.min.css">
@@ -98,20 +99,14 @@
         </div>
         <main class="mdl-layout__content">
             <div class="page-content">
-                <!--hitokoto一言-->
-                <div id="hitokoto" class="animated fadeIn">
-                    <p style="text-align:left" class="text">『</p>
-                    <br/>
-                    <center>
-                        <p id="hitokoto_text" style="text-align:center;width:90%;margin-top:-40px" class="text">{{ $result->hitokoto }}</p>
-                    </center>
-                    <br/>
-                    <p style="text-align:right;margin-top:-40px" class="text">』</p>
-                    <br/>
-                    <p id="hitokoto_author" style="text-align:right" class="text_author">-「{{ $result->from }}」</p>
-                    <br/>
-                </div>
-            </div>
+		    	<!--hitokoto一言-->
+		    	<div id="hitokoto" class="hitokoto-fullpage animated fadeIn">
+		    		<div class="bracket left">『</div>
+		    		<div class="word" id="hitokoto_text">{{ $result->hitokoto }}</div>
+		    		<div class="bracket right">』</div>
+		    		<div class="author" id="hitokoto_author">-「{{ $result->from }}」</div>
+		    	</div>
+		    </div>
         </main>
     </div>
 
@@ -128,7 +123,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.slim.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/material.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/MoePlayer/APlayer@latest/dist/APlayer.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert@2.1.0/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert@latest/dist/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script>
     function fetch163Playlist(playlist_id) {
