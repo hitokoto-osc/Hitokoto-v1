@@ -3,7 +3,7 @@
 @section('content')
 <div class="mdl-card mdl-shadow--2dp" style=" margin-left: auto;margin-right: auto;z-index:1;max-width:600px;top:100px">
     <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text" style="color:black">注册 - Register</h2>
+    <h2 class="mdl-card__title-text" style="color:black">注册</h2>
     </div>
     <div class="mdl-card__actions mdl-card--border">
         <div class="mdl-card__supporting-text">

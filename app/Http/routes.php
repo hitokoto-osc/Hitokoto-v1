@@ -38,10 +38,12 @@ Route::post('/tickets/addReply/{id?}', 'TicketController@addReply')->where('id',
 Route::post('/upload', 'HitokotoController@upload');
 Route::any('/uploadProgress', 'HitokotoController@uploadProgress');
 
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function() {
     Route::get('/', 'AdminController@Index');
     Route::get('tickets', 'AdminTicketController@Index');
     Route::get('hitokoto', 'AdminHitokotoPendingController@Index');
     Route::get('/check', 'CheckController@index');
     Route::get('/review', 'ReviewController@index');
+    Route::post('api/updateSentence', 'AdminApiController@updateSentence');
+    Route::get('review/edit/{result}', 'ReviewController@edit');
 });

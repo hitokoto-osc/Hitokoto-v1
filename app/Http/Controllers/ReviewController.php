@@ -8,9 +8,13 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use App\Hitokoto;
-
+use App\HitokotoReview;
 class ReviewController extends Controller
 {
+    public function edit(HitokotoReview $result) {
+        return view('editSentence', compact('result'));
+    }
+    
     public function index(){
         ini_set("error_reporting",E_ALL ^ E_NOTICE);
         if($_GET['action']=="1"){

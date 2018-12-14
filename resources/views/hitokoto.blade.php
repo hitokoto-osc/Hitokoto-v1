@@ -8,7 +8,7 @@
     <meta name="keywords" content="Hitokoto,一言,Api,免费Api,一言网,Hitokoto.cn,感动,动漫,二次元,台词,语句">
     <meta name="description" content="一言(Hitokoto)网创立于2016年，隶属于萌创Team，目前网站主要提供一句话服务。不论在哪里，总有那么几个句子能穿透你的心。把这些句子汇聚起来，传递更多的感动。简单来说，一言(Hikototo)指的就是一句话，可以是动漫中的台词，也可以是网络上的各种小段子。留下你所喜欢的那一句话，与大家分享，这就是一言(Hitokoto)存在的目的。">
     <link rel="icon" href="https://hitokoto.cn/favicon.ico?t=1527937218382">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.loli.net/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/dist/material.indigo-pink.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daneden/animate.css/animate.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/moeplayer/aplayer@1.10.0/dist/APlayer.min.css">
@@ -127,7 +127,7 @@
     <script>
     function fetch163Playlist(playlist_id) {
   return new Promise(function (ok, err) {
-    fetch("https://v1.hitokoto.cn/nm/playlist/" + playlist_id)
+    fetch("https://v1.hitokoto.cn/nm/playlist/" + playlist_id + "?nocache=true")
       .then(function (response) {
         return response.json();
       })
@@ -280,7 +280,15 @@ function fetch163Songs(IDS) {
                             var author = !!data.from ? data.from : "无名氏"
                             $('#hitokoto_author').text("-「" + author + "」");
                             window.setTimeout(loveHitokoto, 10000);
-                        });
+                        })
+                        .catch(function (err){
+                             console.error(`在更新一言时捕获错误， 错误信息: ${err.message}. 当前时间: ${new Date().toISOString()}`);
+                             loveHitokoto();
+                         });
+                })
+                .catch(function (err) {
+                    console.error(`在更新一言时捕获错误， 错误信息: ${err.message}. 当前时间: ${new Date().toISOString()}`);
+                    loveHitokoto();
                 });
         }
         var isID = {{ $isID  }};

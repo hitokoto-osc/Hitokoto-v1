@@ -33,19 +33,35 @@
                 <h4>感谢</h4>
                 <p>
                     <a class="mdl-button mdl-js-button mdl-button--accent">酷儿</a>
-                    <a class="mdl-button mdl-js-button mdl-button--accent" href="http://www.freejishu.com/">Freejishu的美丽世界
+                    <a class="mdl-button mdl-js-button mdl-button--accent" href="https://www.freejishu.com/">Freejishu的美丽世界
                         以及其一言Api项目</a>
-                    <a class="mdl-button mdl-js-button mdl-button--accent" href="http://blog.lwl12.com/">LWL的自由天空
+                    <a class="mdl-button mdl-js-button mdl-button--accent" href="https://blog.lwl12.com/">LWL的自由天空
                         以及其一言Api项目</a>
                     <a class="mdl-button mdl-js-button mdl-button--accent" href="https://a632079.me">a632079</a>
-                    <a class="mdl-button mdl-js-button mdl-button--accent" href="http://www.mypcqq.cc/">MyPCQQ</a>
+                    <a class="mdl-button mdl-js-button mdl-button--accent" href="https://www.mypcqq.cc/">MyPCQQ</a>
+                    <a class="mdl-button mdl-js-button mdl-button--accent" href="https://www.jinrishici.com">今日诗词API</a>
                 </p>
                 <h4>赞助</h4>
-                <p>
-                    <a class="mdl-button mdl-js-button mdl-button--accent" href="http://loongcat.lofter.com">龙猫〆沧笙踏歌</a>
-                </p>
+                <p>暂无赞助，如果您希望给与我们帮助，请联系我们！</p>
+                
+                <center><p>此处可能有用于缓解服务器资金压力的广告</p></center>
+                
+                <!--AD-->
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Hitokoto_v1 -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-8868204327924354"
+                     data-ad-slot="1137431788"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+
             </div>
         </div>
+
         <footer class="mdl-mini-footer">
             <div class="mdl-mini-footer--left-section">
                 萌创团队 版权所有

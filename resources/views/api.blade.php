@@ -7,8 +7,10 @@
                 <div class="hitokoto-crumbs mdl-color-text--grey-500">
                     Hitokoto &gt; Api
                 </div>
-                <h3>一言网 Api 接口说明</h3>
+                <h3>一言 API 使用说明</h3>
                 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="108" src="https://cdn.a632079.me/163cplayer.html?playlist=496869422"></iframe>
+                <b>接口在 24 小时中处理请求 <i id="requests" style="color:red; font-style:normal;">∞</i> 次</b>
+               <h5><b>近期接口有过调整， 调整内容详见： <a href="https://discuss.hitokoto.cn/d/2-301">https://discuss.hitokoto.cn/d/2</a></b></h5>
                 <h4>1、说明</h4>
                 <p>
                     一言网(Hitokoto.cn)创立于2016年，隶属于萌创Team，目前网站主要提供一句话服务。
@@ -42,17 +44,19 @@
                         <td>v1API将发布最终版本。v1接口将会在未来存在较长时间。</td>
                     </tr>
                     <tr>
-                        <td>Hitokoto v2正式上线运营（预计2018年8月）</td>
+                        <td>v2 发布（预计2019年6月）</td>
                         <td>v2API（域名未知）</td>
                         <td>上线v2API。</td>
                     </tr>
                     </tbody>
                 </table>
                 <br />
+		        <p><b>目前 v1 接口已进入功能锁定阶段，任何需求请在 v2 功能申请表中提出。</b></p>
+		        <p><b>由于我们属于公益性运营，为了保证资源的公平利用和不过度消耗公益资金，我们会不定期的屏蔽某些大流量的站点。如果您的站点的流量比较大，我们建议您提前联系我们获得授权后再开始使用。（合理的站点请求闸值: 20QPS， 超过闸值得请求可能会被限速）</b></p>
                 <p>以下为API详细信息：</p>
                 <p>
                     请求地址：<br/>
-                    HTTP(s): https://v1.hitokoto.cn/
+                    HTTPS: https://v1.hitokoto.cn/ (域名已启用 HSTS， 并已加入 HSTS Preload List 计划)
                 </p>
                 <h4>3、参数</h4>
                 <p>
@@ -174,7 +178,7 @@
                         <td>添加者。</td>
                     </tr>
                     <tr>
-                        <td>cearted_at</td>
+                        <td>created_at</td>
                         <td>添加时间。</td>
                     </tr>
                     <tr>
@@ -256,22 +260,22 @@ function fetch163Playlist(playlist_id) {
 }
 
 function fetch163Songs(IDS) {
-  var ids;
-  switch (typeof IDS) {
-  case 'number':
-    ids = [IDS];
-    break;
-  case 'object':
-    if (!Array.isArray(IDS)) {
-      return new Error("Please enter array or number");
-    }
-    ids = IDS;
-    break;
-  default:
-    return new Error("Please enter array or number");
-    break;
-  }
   return new Promise(function (ok, err) {
+    var ids;
+    switch (typeof IDS) {
+      case 'number':
+        ids = [IDS];
+        break;
+      case 'object':
+        if (!Array.isArray(IDS)) {
+          err(new Error("Please enter array or number"));
+        }
+        ids = IDS;
+        break;
+      default:
+        err(new Error("Please enter array or number"));
+        break;
+    }  
     fetch("https://v1.hitokoto.cn/nm/summary/" + ids.join(",") + "?lyric=true&common=true")
       .then(function (response) {
         return response.json();
@@ -316,11 +320,35 @@ fetch163Songs([28391863, 22640061])
   })</code><pre>
             <h4>6、 扩展</h4>
             <p>网易云 API， 目前文档尚未制作，可以先参考 <a href="https://github.com/a632079/teng-koa/blob/master/netease.md">Github</a></p>
+            
+            <center><p>此处可能有用于缓解服务器资金压力的广告</p></center>
+                
+            <!--AD-->
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Hitokoto_v1 -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-8868204327924354"
+                 data-ad-slot="1137431788"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
             </div>
+            
+            
         </div>
         <footer class="mdl-mini-footer">
             <div class="mdl-mini-footer--left-section">
                 萌创团队 版权所有
             </div>
         </footer>
+        <script>
+            fetch('https://status.hitokoto.cn')
+              .then(res => res.json())
+              .then(data => {
+                $('#requests').text(data.requests.all.pastDay);
+               });
+        </script>
 @stop
