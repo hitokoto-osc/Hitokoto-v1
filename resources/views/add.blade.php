@@ -18,6 +18,11 @@
                         <label class="mdl-textfield__label">来源(不要带有角色名、书名号等符号,无来源请填写分类名)</label>
                     </div>
                     <br/>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                        <input class="mdl-textfield__input" type="text" name="from_who">
+                        <label class="mdl-textfield__label">句子作者（比如：鲁迅，漩涡鸣人，选填）</label>
+                    </div>
+                    <br/>
                     <h5>分类</h5>
                     <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
                         <input type="radio" id="option-1" class="mdl-radio__button" name="type" value="a" checked>

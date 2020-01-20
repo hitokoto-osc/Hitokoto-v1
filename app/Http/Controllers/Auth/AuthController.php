@@ -30,7 +30,7 @@ class AuthController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
-
+    
     /**
      * Create a new authentication controller instance.
      *
@@ -40,7 +40,11 @@ class AuthController extends Controller
     {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
-
+    
+    protected function redirectTo()
+    {
+        return '/path';
+    }
     /**
      * Get a validator for an incoming registration request.
      *
@@ -82,6 +86,7 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'token' => str_random(40)
         ]);
     }
 

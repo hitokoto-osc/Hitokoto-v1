@@ -10,7 +10,6 @@
                 <h3>一言 API 使用说明</h3>
                 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="108" src="https://cdn.a632079.me/163cplayer.html?playlist=496869422"></iframe>
                 <b>接口在 24 小时中处理请求 <i id="requests" style="color:red; font-style:normal;">∞</i> 次</b>
-               <h5><b>近期接口有过调整， 调整内容详见： <a href="https://discuss.hitokoto.cn/d/2-301">https://discuss.hitokoto.cn/d/2</a></b></h5>
                 <h4>1、说明</h4>
                 <p>
                     一言网(Hitokoto.cn)创立于2016年，隶属于萌创Team，目前网站主要提供一句话服务。
@@ -23,6 +22,20 @@
                     *:本段文本源自hitokoto.us
 
                 </p>
+                 <center><p>此处可能有用于缓解服务器资金压力的广告</p></center>
+                
+            <!--AD-->
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Hitokoto_v1 -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-8868204327924354"
+                 data-ad-slot="1137431788"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
                 <h4>2、Api</h4>
                 
                 <p>这是一个Hitokoto Api更新时间表：</p>
@@ -41,10 +54,10 @@
                     <tr>
                         <td>2018年7月之前</td>
                         <td>v1API（https://v1.hitokoto.cn）</td>
-                        <td>v1API将发布最终版本。v1接口将会在未来存在较长时间。</td>
+                        <td>v1API将发布最终版本。v1接口将会在未来存在较长时间（即使v2发布，请放心使用）。</td>
                     </tr>
                     <tr>
-                        <td>v2 发布（预计2019年6月）</td>
+                        <td>v2 发布（时间未知）</td>
                         <td>v2API（域名未知）</td>
                         <td>上线v2API。</td>
                     </tr>
@@ -52,11 +65,32 @@
                 </table>
                 <br />
 		        <p><b>目前 v1 接口已进入功能锁定阶段，任何需求请在 v2 功能申请表中提出。</b></p>
-		        <p><b>由于我们属于公益性运营，为了保证资源的公平利用和不过度消耗公益资金，我们会不定期的屏蔽某些大流量的站点。如果您的站点的流量比较大，我们建议您提前联系我们获得授权后再开始使用。（合理的站点请求闸值: 20QPS， 超过闸值得请求可能会被限速）</b></p>
-                <p>以下为API详细信息：</p>
+		        <p><b>由于一言目前属于公益性运营，为了保证资源的公平利用和不过度消耗公益资金，我们会定期的屏蔽某些大流量的站点。若您的站点的流量较大，您需要提前联系我们获得授权后再开始使用。对于超过阈值的站点，我们有可能会通过一定途径（例如邮件）等方式联系您，若24小时无回应则域名将暂时进入黑名单。</b></p>
+		        <p>考虑到大家的实际应用需求，我们在爱发电（<a href="https://afdian.net/@hitokoto">https://afdian.net/@hitokoto</a>）上架了一个可以略微提高请求限制的赞助选项，有需要可以前往了解。</p>
+		        <p>API 的 CDN 加速服务目前由 <a href="https://www.dogecloud.com/">Dogecloud</a> 提供。在此表示感谢。</p>
+                <h5>以下为API详细信息：</h5>
                 <p>
                     请求地址：<br/>
-                    HTTPS: https://v1.hitokoto.cn/ (域名已启用 HSTS， 并已加入 HSTS Preload List 计划)
+                    有两个请求地址可供您选择：
+                    <table class="apitable" border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                        <tr>
+                            <th><b>请求地址</b></th>
+                            <th><b>请求方式</b></th>
+                            <th><b>说明</b></th>
+                        </tr>
+                        <tr>
+                            <td>https://v1.hitokoto.cn/</td>
+                            <td>GET/POST</td>
+                            <td>1、已启用 HSTS， 并已加入 HSTS Preload List 计划<br />2、站点QPS限制：10，超过有可能会被屏蔽<br />3、线路：大陆+海外</td>
+                        </tr>
+                        <tr>
+                            <td>https://international.v1.hitokoto.cn/</td>
+                            <td>GET/POST</td>
+                            <td>1、已启用 HSTS， 并已加入 HSTS Preload List 计划<br />2、站点QPS限制：25，超过有可能会被屏蔽<br />3、线路：海外</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </p>
                 <h4>3、参数</h4>
                 <p>
@@ -348,7 +382,7 @@ fetch163Songs([28391863, 22640061])
             fetch('https://status.hitokoto.cn')
               .then(res => res.json())
               .then(data => {
-                $('#requests').text(data.requests.all.pastDay);
+                  document.getElementById('requests').innerText = data.requests.all.pastDay;
                });
         </script>
 @stop

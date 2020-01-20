@@ -3,7 +3,7 @@
     /* Hitokoto Page */
     .hitokoto-fullpage {
         width: 55%;
-    }
+    }  
     .background{
         -webkit-filter: brightness(0.6);
         -ms-filter: brightness(0.6);
@@ -13,7 +13,7 @@
         width:100%;
         height:100%;
         z-index:-1;
-        background:url(https://piccdn.freejishu.com/images/2018/03/11/qf3cu.jpg) center no-repeat;
+        background:url(https://cn-south-227-storage-hitokoto-19627663.oss.dogecdn.com/pic/qf3cu.jpg) center no-repeat;
         background-size:cover;
 
     }
@@ -63,7 +63,7 @@
         width:100%;
         height:100%;
         z-index:-1;
-        background:url(https://piccdn.freejishu.com/images/2016/09/25/930f5212c99ccc71accd4615cb03e255.jpg) center no-repeat;
+        background:url(https://cn-south-227-storage-hitokoto-19627663.oss.dogecdn.com/pic/930f5212c99ccc71accd4615cb03e255.jpg) center no-repeat;
         background-size:cover;
     }
     /* Content Style */

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/dist/material.indigo-pink.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/daneden/animate.css/animate.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/moeplayer/aplayer@1.10.0/dist/APlayer.min.css">
-    <link rel="stylesheet" href="/css/hitokoto.css?t=1527949440372">
+    <link rel="stylesheet" href="/css/hitokoto.css?t=1563929603233">
     <style>
        .aplayer-lrc-contents > p {
           color: #fff !important;
@@ -112,7 +112,7 @@
 
     <!--版权信息-->
     <p id="footer">
-        Copyright © 2018 Moecraft All Rights Reserved.  沪ICP备16031287号-1 Email:i@loli.online QQ群：70029304
+        API 由 <a href="https://www.dogecloud.com/">Dogecloud</a> 强力驱动.Copyright © 2019 Moecraft All Rights Reserved.  沪ICP备16031287号-1 Email:i@loli.online QQ群：70029304
     </p>
     <div id="aplayer"></div>
     <!--[if IE]>

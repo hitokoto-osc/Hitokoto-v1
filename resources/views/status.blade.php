@@ -49,12 +49,16 @@
                     <span id="version"></span>
                 </h1>
                 <p class="lead">
-                    为了分析使用状况， 一言会记录接口请求的信息。为了互联网的透明和开放， 我们在此将部分信息公开。
+                    为了分析使用状况， 一言会记录接口请求的信息。维护互联网的透明和开放， 因此我们在此将不敏感信息公开。
                 </p>
+                <!--<p class="alert alert-info">
+                    这个统计程序因为期末挂科所以去重修了，所以啥时候回来我们也不知道啦~~~
+                </p>-->
+                
                 <p class="alert alert-info">
-                    当前服务器时间:
-                    <i id="server_time"></i>
+                    当前服务器时间: <i id="server_time"></i>
                 </p>
+                
                 <p id="downNotice" class="alert alert-secondary" role="alert">
                     部分节点出现故障， 统计数据可能出现丢失。故障节点信息如下：
                     <br />

@@ -29,20 +29,26 @@
                     More and more...
                 </p>
                 <h4>网站的运营方式是怎样的？</h4>
-                <p>目前属于公益性运营，所有的支出由团队内部解决。当然也欢迎各位捐助我们（不论是资金还是其他的）。您可以发送邮件和我们联系，请以“申请合作”为标题。</p>
+                <p>目前属于公益性运营，欢迎各位捐助我们（不论是资金还是其他的）。<br />
+                我们每个月承载着数百元的支出，但是我们一直在为给大家带来感动而努力。<br />
+                小额的捐助可以通过爱发电系统：<a href="https://afdian.net/@hitokoto">https://afdian.net/@hitokoto</a>，大额捐助或者其他资源（例如服务器、CDN）捐助发送邮件和我们联系，请以“申请合作”为标题。</p>
+                <h4>主要运营者</h4>
+                    <a class="mdl-button mdl-js-button mdl-button--accent">酷儿</a>
+                    <a class="mdl-button mdl-js-button mdl-button--accent" href="https://www.freejishu.com/">freejishu</a>
+                    <a class="mdl-button mdl-js-button mdl-button--accent" href="https://a632079.me">a632079</a>
                 <h4>感谢</h4>
                 <p>
-                    <a class="mdl-button mdl-js-button mdl-button--accent">酷儿</a>
-                    <a class="mdl-button mdl-js-button mdl-button--accent" href="https://www.freejishu.com/">Freejishu的美丽世界
-                        以及其一言Api项目</a>
+                    
                     <a class="mdl-button mdl-js-button mdl-button--accent" href="https://blog.lwl12.com/">LWL的自由天空
                         以及其一言Api项目</a>
-                    <a class="mdl-button mdl-js-button mdl-button--accent" href="https://a632079.me">a632079</a>
+                    
                     <a class="mdl-button mdl-js-button mdl-button--accent" href="https://www.mypcqq.cc/">MyPCQQ</a>
                     <a class="mdl-button mdl-js-button mdl-button--accent" href="https://www.jinrishici.com">今日诗词API</a>
                 </p>
                 <h4>赞助</h4>
-                <p>暂无赞助，如果您希望给与我们帮助，请联系我们！</p>
+                    <a class="mdl-button mdl-js-button mdl-button--accent" href="https://www.dogecloud.com/">Dogecloud（视频托管CDN）</a>
+                    <a class="mdl-button mdl-js-button mdl-button--accent">大龟（@afd_d9xh）</a>
+                    <a class="mdl-button mdl-js-button mdl-button--accent">@afd_wvxR</a>
                 
                 <center><p>此处可能有用于缓解服务器资金压力的广告</p></center>
                 

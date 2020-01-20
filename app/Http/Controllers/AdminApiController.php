@@ -13,6 +13,25 @@ class AdminApiController extends Controller
         $this->middleware(['auth', 'admin']);
     }
     
+    
+    public function getReviewSentence (Request $req) {
+       $id = $req->get('sentenceId');
+       if (!$id) {
+           return response()->json([
+               "status" => 403,
+               "message" => "未授权的访问"
+           ]);
+       }
+       $review = @HitokotoReview::find($id);
+       if (!count($id)) {
+         return response()->json([
+           "status" => 403,
+           "message" => "未授权的访问"
+         ]);
+       }
+       return response()->json($review);
+
+    }
     public function updateSentence(Request $request) {
         $id = $request->get('sentenceId');
         if (!$id) {
@@ -30,6 +49,7 @@ class AdminApiController extends Controller
        }
        $content = $request->get("content");
        $source = $request->get("source");
+       $author = $request->get("author");
        $categroy = $request->get("categroy");
        $creator = $request->get("creator");
        
@@ -76,6 +96,10 @@ class AdminApiController extends Controller
          $review->creator = $creator;
        }
        
+       if($author) {
+         $review->from_who = $author;
+       }
+
        if (@$review->save()) {
          return response()->json([
            "status" => 200,

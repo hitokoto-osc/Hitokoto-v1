@@ -36,6 +36,11 @@
                         <input type="text" class="form-control" id="source" name="source" value="{{ $result->from }}">
                     </div>
                     <div class="form-group">
+                        <label for="author">作者</label>
+                        <input type="text" class="form-control" id="author" name="author" value="{{ $result->from_who }}">
+                    </div>
+                    </div>
+                    <div class="form-group">
                         <label for="categroy">分类</label>
                         <select name="categroy" class="form-control" id="categroy">
                             <option>动画</option>
@@ -64,27 +69,28 @@
     <script>
         $(document).ready(function () {
             const categroy = "{{ $result->type }}";
+            console.log(categroy);
             let index = 0;
             switch (categroy) {
-                case '动画':
+                case 'a':
                     index = 0;
                     break;
-                case '漫画':
+                case 'b':
                     index = 1;
                     break;
-                case '游戏':
+                case 'c':
                     index = 2;
                     break;
-                case '小说':
+                case 'd':
                     index = 3;
                     break;
-                case '原创':
+                case 'e':
                     index = 4;
                     break;
-                case '其他':
+                case 'g':
                     index = 5;
                     break;
-                case '来自网络':
+                case 'f':
                     index = 6;
                     break;
                 default:

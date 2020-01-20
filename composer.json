@@ -10,7 +10,8 @@
         "caouecs/laravel-lang": "~3.0",
         "mews/captcha": "~2.0",
         "barryvdh/laravel-ide-helper": "^2.2.0",
-        "vanry/scws": "^1.0"
+        "vanry/scws": "^1.0",
+        "predis/predis": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -58,7 +59,7 @@
     "repositories": {
         "packagist": {
             "type": "composer",
-            "url": "https://packagist.phpcomposer.com"
+            "url": "https://packagist.laravel-china.org"
         }
     }
 }

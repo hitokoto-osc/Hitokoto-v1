@@ -33,6 +33,11 @@
                 <td><a class="mdl-list__item-secondary-action" href="{{ URL('admin/hitokoto') }}"><i class="material-icons"
                                                                                           style="color:#3f51b5">send</i></a></td>
             </tr>
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric"><span style="font-size:17px">审查一言</span></td>
+                <td><a class="mdl-list__item-secondary-action" href="{{ URL('admin/sentence') }}"><i class="material-icons"
+                                                                                          style="color:#3f51b5">send</i></a></td>
+            </tr>
             </tbody>
         </table>
     </div>

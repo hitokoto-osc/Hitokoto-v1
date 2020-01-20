@@ -23,8 +23,11 @@ class ReviewController extends Controller
             $data = new Hitokoto();
             $data->hitokoto = $result->hitokoto;
             $data->from = $result->from;
+            if ($result->from_who) { $data->from_who = $result->from_who; }
             $data->creator = $result->creator;
+            if ($result->creator_uid) { $data->creator_uid = $result->creator_uid; }
             $data->type = $result->type;
+            $data->reviewer = Auth::user()->id;
             $data->created_at = $result->created_at;
             $data->save();
 
@@ -51,8 +54,11 @@ class ReviewController extends Controller
             $result = DB::select("SELECT * FROM `hitokoto_pending` WHERE `id` ='".Input::get("id")."'");
             $data["hitokoto"] = $result[0]->hitokoto;
             $data["from"] = $result[0]->from;
+            if ($result[0]->from_who) { $data["from_who"] = $result[0]->from_who; }
             $data["creator"] = $result[0]->creator;
+            if ($result[0]->creator_uid) { $data["creator_uid"] = $result[0]->creator_uid; }
             $data["type"] = $result[0]->type;
+            $data["reviewer"] = Auth::user()->id;
             $data["created_at"] = $result[0]->created_at;
             DB::table("refuse")->insert($data);
             DB::delete('delete from `hitokoto_pending` where `id` = '.$result[0]->id);

@@ -49,8 +49,13 @@
             为了采集使用状况， 一言会记录接口请求的详细信息。出于透明互联网的共同目的， 我们在此将信息公开。
           </p>
           <p class="alert alert-info">
+            由于目前统计存在一些问题，暂时无法稳定对外展示，故暂时关闭，敬请谅解。
+          </p>
+          <!--
+          <p class="alert alert-info">
             当前服务器时间: <i id="server_time"></i>
           </p>
+          -->
         </div>
       </div>
       <div class="row">
