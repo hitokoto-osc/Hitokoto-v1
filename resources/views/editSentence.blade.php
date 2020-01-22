@@ -39,7 +39,6 @@
                         <label for="author">作者</label>
                         <input type="text" class="form-control" id="author" name="author" value="{{ $result->from_who }}">
                     </div>
-                    </div>
                     <div class="form-group">
                         <label for="categroy">分类</label>
                         <select name="categroy" class="form-control" id="categroy">
