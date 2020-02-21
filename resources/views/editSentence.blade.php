@@ -45,10 +45,15 @@
                             <option>动画</option>
                             <option>漫画</option>
                             <option>游戏</option>
-                            <option>小说</option>
+                            <option>文学</option>
                             <option>原创</option>
                             <option>其他</option>
                             <option>来自网络</option>
+                            <option>影视</option>
+                            <option>诗词</option>
+                            <option>网易云</option>
+                            <option>哲学</option>
+                            <option>抖机灵</option>
                         </select>
                     </div>
                     <div class="form-group">

@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use App\Hitokoto;
 use App\HitokotoReview;
+use Ramsey\Uuid\Uuid as UUID;
+
 class ReviewController extends Controller
 {
     public function edit(HitokotoReview $result) {
@@ -28,6 +30,7 @@ class ReviewController extends Controller
             if ($result->creator_uid) { $data->creator_uid = $result->creator_uid; }
             $data->type = $result->type;
             $data->reviewer = Auth::user()->id;
+            $data->uuid = $result->uuid ?: UUID::uuid4();
             $data->created_at = $result->created_at;
             $data->save();
 
@@ -59,6 +62,7 @@ class ReviewController extends Controller
             if ($result[0]->creator_uid) { $data["creator_uid"] = $result[0]->creator_uid; }
             $data["type"] = $result[0]->type;
             $data["reviewer"] = Auth::user()->id;
+            $data["uuid"] = $result[0]->uuid ?: UUID::uuid4();
             $data["created_at"] = $result[0]->created_at;
             DB::table("refuse")->insert($data);
             DB::delete('delete from `hitokoto_pending` where `id` = '.$result[0]->id);

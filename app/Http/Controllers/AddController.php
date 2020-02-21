@@ -8,6 +8,7 @@ use Auth;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Ramsey\Uuid\Uuid;
 
 class AddController extends Controller
 {
@@ -28,6 +29,7 @@ class AddController extends Controller
             $data["creator"] = Auth::user()->name;
             $data["creator_uid"] = Auth::user()->id;
             $data["type"] = Input::get('type');
+            $data["uuid"] = Uuid::uuid4();
             $data["created_at"] = strtotime("now");
             DB::table("pending")->insert($data);
             return redirect('home');

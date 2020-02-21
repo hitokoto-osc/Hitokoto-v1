@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Illuminate\Support\Facades\DB;
+use App\HitokotoPenging;
 
 class AdminHitokotoPendingController extends Controller
 {
@@ -16,8 +16,12 @@ class AdminHitokotoPendingController extends Controller
 
     public function Index()
     {
-        $results = DB::select("SELECT * FROM `hitokoto_pending`");
-        $back['user_check_list']=$results;
-        return view('admin.hitokoto.pending',$back);
+        $results =\App\ HitokotoPending::all();
+	foreach($results as $key => $value) {
+	  $results[$key]->type = transformType($value->type);
+        }
+	$data = [];
+	$data['collection'] = $results;
+        return view('admin.hitokoto.pending',$data);
     }
 }

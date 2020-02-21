@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Routing\Controller;
-
+use Ramsey\Uuid\Uuid;
 
 class AppController extends Controller
 {
@@ -112,19 +112,27 @@ class AppController extends Controller
         if (!Auth::check()) {
             return response()->json(['code' => '-1', 'msg' => '未登录，请先登录。']);
         }
+        $params = '';
         if(@$_GET['test']){
-            $data = json_decode($_GET['test'],true);
+            $params = json_decode($_GET['test'],true);
         }else{
-            $data = $request->all();
+            $params = $request->all();
         }
         //{"hitokoto":"xxxxxx","from":"xxxxx","type":"xxxxxxx"}
-        if(!$data)return response()->json(['code' => '-1', 'msg' => '请求有误。您可以尝试重新提交请求，若持续出现此错误请联系我们。' ]);
+        if(!$params)return response()->json(['code' => '-1', 'msg' => '请求有误。您可以尝试重新提交请求，若持续出现此错误请联系我们。' ]);
 
-        if($data['hitokoto'] && $data['from'] && $data['type']){
-            $data["hitokoto"] = $data['hitokoto'];
-            $data["from"] = $data['from'];
+        if($params['hitokoto'] && $params['from'] && $params['type']){
+            $data["hitokoto"] = $params['hitokoto'];
+            $data["from"] = $params['from'];
             $data["creator"] = Auth::user()->name;
-            $data["type"] = $data['type'];
+            $data["type"] = $params['type'];
+            
+            if (array_key_exists('from_who', $params) && $params['from_who'] !== '') {
+                $data["from_who"] = $params["from_who"];
+            }
+            $data["creator_uid"] = Auth::user()->id;
+            $data["uuid"] = Uuid::uuid4();
+
             $data["created_at"] = strtotime("now");
             DB::table("pending")->insert($data);
             return response()->json(['code' => '200', 'msg' => '添加成功。我们会尽快审核。' ]);

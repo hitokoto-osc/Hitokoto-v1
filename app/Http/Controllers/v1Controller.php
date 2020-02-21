@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use App\User;
 
+use Ramsey\Uuid\Uuid as UUID;
+
 class v1Controller extends Controller
 {
     public function append ()
@@ -33,6 +35,7 @@ class v1Controller extends Controller
             $data["creator"] = Auth::user()->name;
             $data["type"] = Input::get('type');
             $data["creator_uid"] = Auth::user()->id;
+            $data["uuid"] = UUID::uuid4();
             $data["created_at"] = strtotime("now");
             DB::table("pending")->insert($data);
             return response()->json([

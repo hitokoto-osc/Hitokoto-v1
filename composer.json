@@ -11,7 +11,8 @@
         "mews/captcha": "~2.0",
         "barryvdh/laravel-ide-helper": "^2.2.0",
         "vanry/scws": "^1.0",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
+        "ramsey/uuid": "^3.9"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -29,7 +30,8 @@
         },
         "files": [
           "app/Libraries/System.php",
-          "app/Libraries/Uploader.php"
+          "app/Libraries/Uploader.php",
+          "app/Helpers/functions.php"
         ]
     },
     "autoload-dev": {
@@ -59,7 +61,7 @@
     "repositories": {
         "packagist": {
             "type": "composer",
-            "url": "https://packagist.laravel-china.org"
+            "url": "https://mirrors.aliyun.com/composer/"
         }
     }
 }

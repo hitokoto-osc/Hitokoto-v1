@@ -69,7 +69,7 @@ class AdminApiController extends Controller
            case "游戏":
              $type = "c";
              break;
-           case "小说":
+           case "文学":
              $type = 'd';
              break;
            case '原创':
@@ -81,6 +81,22 @@ class AdminApiController extends Controller
            case '其他':
              $type = 'g';
              break;
+           case "影视":
+             $type = "h";
+             break;
+           case "诗词":
+             $type = 'i';
+             break;
+           case '网易云':
+             $type = 'j';
+             break;
+           case '哲学':
+             $type = 'k';
+             break;
+           case '抖机灵':
+             $type = 'l';
+             break;
+
            default:
              $type = 'a';
              break;

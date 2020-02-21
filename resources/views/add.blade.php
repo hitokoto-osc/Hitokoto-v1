@@ -41,7 +41,7 @@
                     <br/>
                     <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-4">
                         <input type="radio" id="option-4" class="mdl-radio__button" name="type" value="d">
-                        <span class="mdl-radio__label">Novel – 小说</span>
+                        <span class="mdl-radio__label">Literature – 文学</span>
                     </label>
                     <br/>
                     <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-5">
@@ -58,6 +58,32 @@
                         <input type="radio" id="option-7" class="mdl-radio__button" name="type" value="g">
                         <span class="mdl-radio__label">Other – 其他</span>
                     </label>
+                    <br/>
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-8">
+                        <input type="radio" id="option-8" class="mdl-radio__button" name="type" value="h">
+                        <span class="mdl-radio__label">Vedio – 影视</span>
+                    </label>
+                    <br/>
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-9">
+                        <input type="radio" id="option-9" class="mdl-radio__button" name="type" value="i">
+                        <span class="mdl-radio__label">Poem – 诗词</span>
+                    </label>
+                    <br/>
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-10">
+                        <input type="radio" id="option-7" class="mdl-radio__button" name="type" value="j">
+                        <span class="mdl-radio__label">NCM – 网易云</span>
+                    </label>
+                    <br/>
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-11">
+                        <input type="radio" id="option-11" class="mdl-radio__button" name="type" value="k">
+                        <span class="mdl-radio__label">Philosophy – 哲学</span>
+                    </label>
+                    <br/>
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-12">
+                        <input type="radio" id="option-12" class="mdl-radio__button" name="type" value="l">
+                        <span class="mdl-radio__label">Funny – 抖机灵</span>
+                    </label>
+
                     <br/>
                     <br/>
                     <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
